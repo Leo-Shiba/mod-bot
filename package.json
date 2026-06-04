@@ -1,0 +1,20 @@
+{
+  "name": "mod-bot",
+  "version": "1.0.0",
+  "description": "Bot de moderação de grupos WhatsApp",
+  "main": "index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node launcher.js",
+    "dev": "node --env-file=.env --watch index.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "pino": "^9.4.0",
+    "qrcode-terminal": "^0.12.0"
+  },
+  "license": "MIT"
+}
