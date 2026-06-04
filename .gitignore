@@ -1,0 +1,16 @@
+# Autoria Leo-Shiba GitHub
+# Dependências
+node_modules/
+
+# Segredos — NUNCA commitar
+.env
+
+# Dados gerados em runtime (banco e sessão do WhatsApp)
+data/
+
+# Configurações da IDE
+.claude/
+
+# Logs
+*.log
+npm-debug.log*
