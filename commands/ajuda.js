@@ -1,0 +1,2 @@
+// Autoria Leo-Shiba GitHub
+module.exports={nome:'ajuda',aliases:['help'],descricao:'Lista todos os comandos.',executar:async({sock,jid,comandos})=>{const lista=comandos();const a=lista.filter(c=>c.apenasAdmin);const p=lista.filter(c=>!c.apenasAdmin);const linhas=['🛡️ *Bot de Moderacao*','','*Admin:*',...a.map(c=>`  !${c.nome} — ${c.descricao}`),'','*Publico:*',...p.map(c=>`  !${c.nome} — ${c.descricao}`)];await sock.sendMessage(jid,{text:linhas.join('\n')});}};
