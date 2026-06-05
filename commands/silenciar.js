@@ -1,0 +1,3 @@
+// Autoria Leo-Shiba GitHub
+const{extrairMencionado,jidParaNumero}=require('../core/utils');
+module.exports={nome:'silenciar',aliases:['mute'],descricao:'Remove e re-adiciona apos X minutos (padrao 30).',apenasAdmin:true,apenasGrupo:true,executar:async({sock,msg,jid,args,db})=>{const alvo=extrairMencionado(msg);if(!alvo)return sock.sendMessage(jid,{text:'Mencione quem.'});const min=Math.min(parseInt(args[0])||30,1440);const ate=Date.now()+min*60*1000;const num=jidParaNumero(alvo);db.silenciar(jid,alvo,ate);try{await sock.groupParticipantsUpdate(jid,[alvo],'remove');await sock.sendMessage(jid,{text:`🔇 @${num} silenciado por *${min}* min(s).`,mentions:[alvo]});}catch(e){db.removerSilenciado(jid,alvo);}}};
