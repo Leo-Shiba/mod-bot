@@ -6,59 +6,51 @@
 
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://github.com/Leo-Shiba/mod-bot)
 [![Node.js](https://img.shields.io/badge/Node.js-22+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
-[![Baileys](https://img.shields.io/badge/Baileys-6.7.9-0078D4?style=for-the-badge)](https://github.com/WhiskeySockets/Baileys)
-[![Termux](https://img.shields.io/badge/Termux-Android-black?style=for-the-badge&logo=android&logoColor=white)](https://f-droid.org)
+[![Baileys](https://img.shields.io/badge/Baileys-latest-0078D4?style=for-the-badge)](https://github.com/WhiskeySockets/Baileys)
+[![Termux](https://img.shields.io/badge/Termux-Android-black?style=for-the-badge&logo=android&logoColor=white)](https://github.com/termux/termux-app/releases/latest)
 [![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow?style=for-the-badge)](./LICENSE)
 
 <br/>
 
-> **Bot completo de moderação de grupos WhatsApp, feito para rodar direto no celular via Termux.**  
-> Sem servidor. Sem mensalidade. Instala em minutos e funciona 24h no seu Android.
+> **Bot de moderação para grupos do WhatsApp, feito para rodar 100% pelo celular via Termux.**
+> Sem servidor, sem VPS, sem custo.
 
 <br/>
 
-[📥 Instalação](#-instalação-no-celular-android) · [⚙️ Comandos](#️-comandos) · [🤖 Automações](#-automações) · [📄 Tutoriais PDF](#-tutoriais-em-pdf) · [🔧 Problemas](#-solução-de-problemas)
+[📱 Instalação](#-tutorial--instalação-no-termux-passo-a-passo) · [💬 Comandos](#-comandos) · [✨ Funcionalidades](#-funcionalidades) · [🗂️ Estrutura](#️-estrutura-do-projeto)
 
 </div>
 
 ---
 
-## ✨ O que o bot faz
+## ✨ Funcionalidades
 
 <table>
 <tr>
 <td width="50%">
 
-**🛡️ Moderação**
-- 🔨 Banir, promover e rebaixar membros
-- ⚠️ Sistema de avisos com ban automático
-- 🔇 Silenciar temporariamente
+**🛡️ Proteção**
+| | Descrição |
+|---|---|
+| 🔗 **Anti-link** | Apaga mensagens com links automaticamente |
+| 🌊 **Anti-flood** | Detecta e pune spam de mensagens |
+| 🚫 **Palavras proibidas** | Remove mensagens com palavras configuráveis |
+| 📸 **Anti-status** | Bloqueia quando alguém compartilha status no grupo |
+| 🔇 **Silenciar** | Impede que um membro envie mensagens por X minutos |
+| ⚠️ **Sistema de avisos** | Acumula avisos e bane ao atingir o limite |
 
 </td>
 <td width="50%">
 
-**🤖 Automações**
-- 🚫 Anti-link — apaga links automaticamente
-- 💬 Anti-flood — controle de spam
-- 🤬 Palavras proibidas com lista negra
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-**👥 Gestão de Grupo**
-- 👋 Boas-vindas e despedida personalizáveis
-- 📜 Regras acessíveis por qualquer membro
-- 🧹 Limpeza de mensagens em massa
-
-</td>
-<td width="50%">
-
-**📊 Informações**
-- 📊 Estatísticas do grupo com `!info`
-- 👮 Lista de admins com `!admins`
-- ⚠️ Histórico de avisos por membro
+**⚙️ Gestão**
+| | Descrição |
+|---|---|
+| 👋 **Boas-vindas e saída** | Mensagens automáticas personalizáveis |
+| 🔒 **Trancar grupo** | Restringe envio apenas para admins |
+| 🗑️ **Limpar mensagens** | Apaga as últimas N mensagens |
+| 👑 **Promover / rebaixar** | Gerencia admins do grupo |
+| ⚙️ **Config por grupo** | Cada grupo tem suas próprias configurações |
+| 💬 **Respostas no PV** | Comandos de admin respondem no privado |
 
 </td>
 </tr>
@@ -66,236 +58,215 @@
 
 ---
 
-## 📄 Tutoriais em PDF
+## 📱 Tutorial — Instalação no Termux (passo a passo)
 
-Dois guias prontos para compartilhar com quem quiser instalar o bot:
+> O bot roda direto no seu Android. Siga os passos abaixo do zero.
 
-| 📁 Arquivo | 📋 Conteúdo |
-|:--|:--|
-| [`tutorial-instalacao.pdf`](./tutorial-instalacao.pdf) | Passo a passo completo de instalação no Termux |
-| [`referencia-comandos.pdf`](./referencia-comandos.pdf) | Referência rápida de todos os comandos |
-
----
-
-## 📲 Instalação no celular (Android)
-
-### Pré-requisitos
-
-| ✅ | Requisito |
-|:--:|:--|
-| 📱 | Android 7.0 ou superior |
-| 📦 | App **Termux** (via F-Droid — veja abaixo) |
-| 📂 | Pasta do bot no celular |
-
----
-
-### Passo 1 — Instalar o Termux
+### 1. Instalar o Termux
 
 > [!WARNING]
-> **Não use a Play Store** — a versão de lá é antiga e quebra a instalação.
+> **Não use a versão da Play Store** — ela está desatualizada e vai dar erro.
 
-1. Acesse **https://f-droid.org** no celular e instale o F-Droid
-2. Abra o F-Droid, busque **Termux** e instale
+1. Acesse **[github.com/termux/termux-app/releases/latest](https://github.com/termux/termux-app/releases/latest)** pelo celular
+2. Baixe o arquivo **`termux-app_v*.apk`** (universal ou arm64-v8a para a maioria dos celulares)
+3. Instale o APK e abra o Termux
 
 ---
 
-### Passo 2 — Colocar a pasta do bot no celular
+### 2. Configurar o Termux
 
-Baixe ou transfira a pasta do bot para o celular (via USB, Google Drive, etc.) e coloque em **Downloads**.
+Cole cada bloco de comandos no Termux e aguarde terminar:
 
-Abra o Termux e rode, **um de cada vez**:
+**Atualizar pacotes:**
+```bash
+pkg update && pkg upgrade -y
+```
+
+**Instalar dependências:**
+```bash
+pkg install nodejs git -y
+```
+
+**Verificar instalação:**
+```bash
+node -v && git --version
+```
+> Deve mostrar a versão do Node.js (ex: `v26.x.x`) e do Git.
+
+---
+
+### 3. Clonar o repositório
 
 ```bash
-termux-setup-storage
+git clone https://github.com/Leo-Shiba/mod-bot.git
+cd mod-bot
 ```
 
-> Aparecerá uma janela pedindo permissão de armazenamento — toque em **Permitir**.
+---
+
+### 4. Instalar dependências do bot
 
 ```bash
-cp -r /sdcard/Download/mod-bot ~/mod-bot && cd ~/mod-bot
+npm install
 ```
 
-> Se a pasta estiver em outro local, ajuste o caminho acima.
+> Aguarde baixar todos os pacotes. Pode demorar alguns minutos na primeira vez.
 
 ---
 
-### Passo 3 — Rodar o setup
-
-```bash
-bash setup-termux.sh
-```
-
-O script faz **tudo automaticamente**:
-
-| ⚙️ | Etapa |
-|:--:|:--|
-| 📦 | Instala o Node.js e as dependências |
-| 📱 | Pede seu número de WhatsApp |
-| 🚀 | Pergunta se quer iniciar o bot agora |
-| 🌙 | Pergunta se quer rodar em segundo plano |
-
----
-
-### Passo 4 — Escanear o QR Code
-
-Quando o bot iniciar, um QR Code aparecerá no terminal. Escaneie pelo WhatsApp:
-
-```
-WhatsApp → Menu (⋮) → Aparelhos conectados → Conectar aparelho
-```
-
-> [!TIP]
-> ✅ Pronto — o bot está online!
-
----
-
-### 🌙 Manter o bot ligado com a tela apagada
-
-O setup já pergunta sobre isso. Para configurar manualmente:
-
-1. **Configurações → Aplicativos → Termux → Bateria** → Selecione **Sem restrições**
-2. No painel de notificações, segure a notificação do Termux → marque como **Persistente**
-
----
-
-### 🔁 Religar o bot depois
-
-```bash
-cd ~/mod-bot && npm start
-```
-
----
-
-## ⚙️ Comandos
-
-> Todos começam com `!`. Admins têm acesso a tudo; membros comuns só aos comandos públicos.
-
-### 🔐 Comandos de Administrador
-
-| Comando | Descrição |
-|:--|:--|
-| `!config` | Mostra o que está ligado/desligado no grupo |
-| `!config antilink on/off` | Liga/desliga o bloqueio de links |
-| `!config antiflood on/off` | Liga/desliga o aviso contra spam |
-| `!config boasvindas on/off` | Liga/desliga a mensagem de boas-vindas |
-| `!config saida on/off` | Liga/desliga a mensagem de despedida |
-| `!config maxavisos <número>` | Define quantos avisos antes do ban (padrão: 3) |
-| `!setboasvindas <mensagem>` | Personaliza a mensagem de boas-vindas |
-| `!setboasvindas reset` | Volta para a mensagem padrão |
-| `!setsaida <mensagem>` | Personaliza a mensagem de despedida |
-| `!setsaida reset` | Volta para a mensagem padrão |
-| `!setregras <texto>` | Define as regras do grupo |
-| `!palavras` | Lista as palavras proibidas |
-| `!palavras add <palavra>` | Adiciona uma palavra proibida |
-| `!palavras rm <palavra>` | Remove uma palavra proibida |
-| `!banir @membro` | Remove o membro do grupo |
-| `!avisar @membro [motivo]` | Dá um aviso (ao atingir o limite → ban) |
-| `!resetar @membro` | Zera os avisos de um membro |
-| `!silenciar @membro [minutos]` | Remove temporariamente e re-adiciona depois |
-| `!promover @membro` | Torna o membro administrador |
-| `!rebaixar @membro` | Remove a administração do membro |
-| `!limpar [número]` | Apaga as últimas N mensagens (máximo 50) |
-
-### 🌐 Comandos Públicos
-
-| Comando | Descrição |
-|:--|:--|
-| `!regras` | Mostra as regras do grupo |
-| `!avisos [@membro]` | Mostra quantos avisos alguém tem |
-| `!admins` | Lista os administradores |
-| `!info` | Estatísticas do grupo |
-| `!ajuda` | Lista todos os comandos disponíveis |
-
----
-
-## 🤖 Automações
-
-| Automação | Status padrão | Comportamento |
-|:--|:--:|:--|
-| 👋 Boas-vindas | ✅ Ligado | Manda mensagem quando alguém entra |
-| 👋 Despedida | ⛔ Desligado | Manda mensagem quando alguém sai |
-| 🤬 Palavras proibidas | ✅ Sempre ativo | Apaga mensagens da lista negra |
-| 🔗 Anti-link | ⛔ Desligado | Apaga mensagens com links |
-| 💬 Anti-flood | ⛔ Desligado | Avisa quem manda mensagens rápido demais |
-| 🔨 Ban automático | ✅ Ativo | Bane após atingir o limite de avisos (padrão: 3) |
-
-### Personalizar mensagens
-
-Use `{nome}` para mencionar o membro automaticamente:
-
-```bash
-!setboasvindas Olá, {nome}! Seja bem-vindo(a). Leia as regras com !regras.
-!setsaida Até mais, {nome}! Foi bom ter você aqui.
-```
-
----
-
-## 🔧 Solução de problemas
-
-<details>
-<summary><b>❓ QR Code não aparece ou expirou</b></summary>
-
-```bash
-rm -rf data/auth && npm start
-```
-</details>
-
-<details>
-<summary><b>❓ Bot parou de responder</b></summary>
+### 5. Iniciar o bot
 
 ```bash
 npm start
 ```
 
-O bot reconecta automaticamente na maioria dos casos.
-</details>
+Na **primeira execução** o bot exibe um QR Code no terminal.
 
-<details>
-<summary><b>❓ Erro de permissão ao copiar arquivos</b></summary>
+Abra o WhatsApp no celular e escaneie:
+**Configurações → Aparelhos conectados → Conectar aparelho**
 
-```bash
-termux-setup-storage
-```
-
-Aceite a permissão e tente novamente.
-</details>
-
-<details>
-<summary><b>❓ Node.js muito antigo (erro no setup)</b></summary>
-
-```bash
-pkg install nodejs-lts -y
-```
-</details>
+> [!TIP]
+> ✅ Quando aparecer `Conectado ao WhatsApp!` o bot está pronto para uso.
 
 ---
 
-## 🧱 Estrutura do projeto
+### 6. Manter o bot rodando
+
+Para o bot não parar quando você fechar o Termux:
+
+1. Deslize da esquerda para a direita no Termux para abrir o menu lateral
+2. Toque em **New Session** — isso cria uma nova aba
+3. Na aba com o bot rodando, **não feche** — minimize o Termux
+
+**Ative o Wakelock** para o Termux não ser encerrado pelo sistema:
+```bash
+termux-wake-lock
+```
+
+---
+
+### 7. Parar o bot
+
+Pressione `Ctrl + C` no terminal onde o bot está rodando.
+
+---
+
+### 8. Reiniciar após fechar o Termux
+
+```bash
+cd mod-bot && npm start
+```
+
+---
+
+## 💬 Comandos
+
+> Todos os comandos usam o prefixo `!`. A maioria também aceita em inglês.
+> Comandos de admin reagem no grupo e enviam a resposta no **seu PV**.
+
+### 🌐 Públicos
+
+| Comando | Descrição |
+|:--|:--|
+| `!regras` / `!rules` | Mostra as regras do grupo |
+
+### 🔐 Moderação _(admin)_
+
+| Comando | Alias EN | Descrição |
+|:--|:--|:--|
+| `!banir @membro` | `!kick` | Remove o membro do grupo |
+| `!avisar @membro [motivo]` | `!warn` | Adiciona um aviso ao membro |
+| `!resetar @membro` | `!clearwarn` | Zera os avisos do membro |
+| `!silenciar @membro [min]` | `!mute` | Silencia por X minutos (padrão: 30) |
+| `!dessilenciar @membro` | `!unmute` | Remove o silêncio |
+| `!avisos [@membro]` | `!warns` | Ver avisos e histórico de motivos |
+
+### 🏛️ Gestão do grupo _(admin)_
+
+| Comando | Alias EN | Descrição |
+|:--|:--|:--|
+| `!promover @membro` | `!promote` | Promove a admin |
+| `!rebaixar @membro` | `!demote` | Remove admin |
+| `!trancar` | `!lock` | Bloqueia envio para não-admins |
+| `!destrancar` | `!unlock` | Libera envio para todos |
+| `!limpar [n]` | `!clear` | Apaga as últimas N mensagens (padrão: 10) |
+
+### ⚙️ Configuração _(admin)_
+
+| Comando | Alias EN | Descrição |
+|:--|:--|:--|
+| `!config` | `!cfg` | Painel de configurações do grupo |
+| `!config antilink on/off` | — | Ativa/desativa anti-link |
+| `!config antiflood on/off` | — | Ativa/desativa anti-flood |
+| `!config antistatus on/off` | — | Ativa/desativa anti-status |
+| `!config boasvindas on/off` | — | Ativa/desativa boas-vindas |
+| `!config saida on/off` | — | Ativa/desativa mensagem de saída |
+| `!config maxavisos <n>` | — | Limite de avisos antes do ban |
+| `!config floodlimite <n>` | — | Mensagens por 10s antes do flood |
+| `!setregras <texto>` | `!setrules` | Define as regras do grupo |
+| `!setboasvindas <msg>` | `!setwelcome` | Mensagem de boas-vindas (`{nome}` = menção) |
+| `!setsaida <msg>` | `!setleave` | Mensagem de saída (`{nome}` = menção) |
+
+### 🚫 Palavras proibidas _(admin)_
+
+| Comando | Alias EN | Descrição |
+|:--|:--|:--|
+| `!palavras` | `!words` | Lista as palavras proibidas |
+| `!addpalavra <palavra>` | `!addword` | Adiciona palavra proibida |
+| `!rmpalavra <palavra>` | `!rmword` | Remove palavra proibida |
+
+### 🛠️ Utilitários _(admin)_
+
+| Comando | Descrição |
+|:--|:--|
+| `!info` | Status e informações do grupo |
+| `!admins` | Lista os admins do grupo |
+| `!ping` | Verifica latência do bot |
+| `!ajuda` / `!help` | Lista todos os comandos |
+
+---
+
+## ⚙️ Configuração
+
+O arquivo `.env` é opcional. Copie o exemplo se quiser personalizar:
+
+```bash
+cp .env.example .env
+```
+
+---
+
+## 🗂️ Estrutura do projeto
 
 ```
 mod-bot/
-│
-├── 📄 index.js              # Núcleo: conexão, eventos, anti-flood, anti-link
-├── 📄 launcher.js           # Inicializador com keep-alive
-├── 📄 config.js             # Configurações gerais
-├── 📜 setup-termux.sh       # Script de instalação automática
+├── 📄 index.js          # Conexão WhatsApp, proteções automáticas
+├── 📄 launcher.js       # Auto-reinício + lock de instância única
+├── 📄 config.js         # Configurações gerais
 │
 ├── 📂 core/
-│   ├── commandHandler.js    # Carrega e processa comandos
-│   ├── database.js          # Banco SQLite (avisos, config, grupos)
-│   ├── seguranca.js         # Verificação de permissões
-│   ├── notificar.js         # Notificações para o dono
-│   ├── buffer.js            # Buffer de mensagens para !limpar
-│   └── utils.js             # Funções utilitárias
+│   ├── database.js      # SQLite (sql.js) — sem dependência externa
+│   ├── commandHandler.js # Roteamento de comandos
+│   ├── seguranca.js     # Rate limiting
+│   ├── buffer.js        # Buffer de mensagens (para !limpar)
+│   ├── notificar.js     # Controle de intervalo de notificações
+│   └── utils.js         # Helpers: reagir, responderPV, etc.
 │
-├── 📂 commands/             # Um arquivo por comando
-│   ├── ajuda.js
-│   ├── avisar.js
-│   ├── banir.js
-│   └── ...
+├── 📂 commands/         # Um arquivo por comando
 │
-├── 📋 tutorial-instalacao.pdf
-└── 📋 referencia-comandos.pdf
+├── 📂 data/
+│   ├── auth/            # Sessão WhatsApp (gitignored)
+│   └── bot.db           # Banco de dados (gitignored)
+│
+└── 🧪 test_bot.js       # 101 testes automatizados
+```
+
+---
+
+## 🧪 Testes
+
+```bash
+npm test
 ```
 
 ---
