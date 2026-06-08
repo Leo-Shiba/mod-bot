@@ -276,10 +276,10 @@ Para encerrar: `Ctrl + C`
 | Automação | Padrão | Comportamento |
 |:--|:--:|:--|
 | 👋 Boas-vindas | ✅ Ligado | Mensagem ao entrar no grupo |
-| 🚪 Despedida | Desligado | Mensagem ao sair do grupo |
-| 🔗 Anti-link | Desligado | Apaga mensagens com links |
-| 💬 Anti-flood | Desligado | Avisa quem envia mensagens rapido demais |
-| 📸 Anti-status | Desligado | Impede visualizacao de status automatica |
+| 🚪 Despedida | 🔴 Inativo | Mensagem ao sair do grupo |
+| 🔗 Anti-link | 🔴 Inativo | Apaga mensagens com links |
+| 💬 Anti-flood | 🔴 Inativo | Avisa quem envia mensagens rapido demais |
+| 📸 Anti-status | 🔴 Inativo | Impede visualizacao de status automatica |
 | 🤬 Palavras proibidas | ✅ Sempre ativo | Apaga mensagens com palavras da lista negra |
 | 🔨 Ban automatico | ✅ Ativo | Bane ao atingir o limite de avisos (padrao: 3) |
 
