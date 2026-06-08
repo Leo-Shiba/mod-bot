@@ -22,6 +22,13 @@ function makeSock() {
   return {
     _sent: sent,
     _last: () => sent[sent.length - 1],
+    _texto: () => {
+      // retorna texto da ultima mensagem que seja texto (não react)
+      for (let i = sent.length - 1; i >= 0; i--) {
+        if (sent[i]?.msg?.text) return sent[i].msg.text;
+      }
+      return '';
+    },
     sendMessage: async (jid, msg) => { sent.push({ jid, msg }); return { key: { id: 'mock_' + Date.now() } }; },
     groupMetadata: async () => ({
       subject: 'Grupo Teste',
@@ -40,6 +47,7 @@ function makeSock() {
 function mkMsg(texto, autor, jid) {
   return {
     key: { remoteJid: jid || GJID, participant: autor || ADMIN_JID, fromMe: false, id: 'msg_' + Date.now() + Math.random() },
+    messageTimestamp: Math.floor(Date.now() / 1000),
     message: { conversation: texto },
   };
 }
@@ -47,6 +55,7 @@ function mkMsg(texto, autor, jid) {
 function mkMsgMencao(texto, mencionado) {
   return {
     key: { remoteJid: GJID, participant: ADMIN_JID, fromMe: false, id: 'msg_' + Date.now() + Math.random() },
+    messageTimestamp: Math.floor(Date.now() / 1000),
     message: { extendedTextMessage: { text: texto, contextInfo: { mentionedJid: [mencionado] } } },
   };
 }
@@ -92,6 +101,16 @@ async function run() {
   db.addAviso(GID, MID); ok('addAviso 1', db.getAvisos(GID, MID) === 1);
   db.addAviso(GID, MID); ok('addAviso 2', db.getAvisos(GID, MID) === 2);
   db.resetarAvisos(GID, MID); ok('resetarAvisos zera', db.getAvisos(GID, MID) === 0);
+
+  // historico_avisos
+  db.addHistoricoAviso(GID, MID, 'Spam');
+  db.addHistoricoAviso(GID, MID, 'Flood');
+  const hist = db.getHistoricoAvisos(GID, MID);
+  ok('historico tem 2 registros', hist.length === 2);
+  ok('historico preserva motivo', hist[0].motivo === 'Spam');
+  ok('historico tem timestamp', hist[0].data > 0);
+  db.limparHistoricoAvisos(GID, MID);
+  ok('limparHistoricoAvisos remove tudo', db.getHistoricoAvisos(GID, MID).length === 0);
 
   ok('lista de palavras vazia', db.listarPalavrasProibidas(GID).length === 0);
   db.addPalavra(GID, 'spam'); db.addPalavra(GID, 'flood');
@@ -152,65 +171,70 @@ async function run() {
     ok('cmd inexistente nao responde', s._sent.length === 0); }
 
   { const s = makeSock();
-    await handler.tratarMensagem({ sock: s, msg: { key: { remoteJid: '55999@s.whatsapp.net', fromMe: false }, message: { conversation: '!banir' } }, db, buffer });
-    ok('apenasGrupo rejeitado em DM', (s._last()?.msg?.text || '').toLowerCase().includes('grupo')); }
+    await handler.tratarMensagem({ sock: s, msg: { key: { remoteJid: '55999@s.whatsapp.net', fromMe: false }, messageTimestamp: Math.floor(Date.now()/1000), message: { conversation: '!banir' } }, db, buffer });
+    ok('DM ignorado silenciosamente', s._sent.length === 0); }
 
   { const s = makeSock();
     await handler.tratarMensagem({ sock: s, msg: mkMsg('!banir', 'membro1@s.whatsapp.net'), db, buffer });
-    const t = s._last()?.msg?.text || '';
-    ok('nao-admin bloqueado', t.includes('admin') || t.includes('Apenas')); }
+    const temReact = s._sent.some(m => m.msg?.react?.text === '❌');
+    const semTexto = !s._sent.some(m => m.msg?.text);
+    ok('nao-admin recebe reacao X sem texto', temReact && semTexto); }
 
   // ══════════════════════════════════════════════════════════════
   console.log('\nCOMANDOS respostas');
   // ══════════════════════════════════════════════════════════════
   seguranca.limparTudo();
 
-  { const s = await cmd(mkMsg('!ajuda'));    ok('!ajuda responde',      (s._last()?.msg?.text || '').includes('MOD BOT')); }
-  { const s = await cmd(mkMsg('!help'));     ok('!help alias',          (s._last()?.msg?.text || '').includes('MOD BOT')); }
-  { const s = await cmd(mkMsg('!info'));     ok('!info responde',       (s._last()?.msg?.text || '').includes('Membros')); }
-  { const s = await cmd(mkMsg('!admins'));   ok('!admins responde',     (s._last()?.msg?.text || '').includes('admin')); }
-  { const s = await cmd(mkMsg('!regras'));   ok('!regras sem regras',   (s._last()?.msg?.text || '').includes('Nenhuma')); }
-  { const s = await cmd(mkMsg('!avisos'));   ok('!avisos responde',     (s._last()?.msg?.text || '').includes('0')); }
+  { const s = await cmd(mkMsg('!ajuda'));    ok('!ajuda responde no PV',  s._texto().includes('MOD BOT')); }
+  { const s = await cmd(mkMsg('!help'));     ok('!help alias',            s._texto().includes('MOD BOT')); }
+  { const s = await cmd(mkMsg('!info'));     ok('!info responde no PV',   s._texto().includes('Membros')); }
+  { const s = await cmd(mkMsg('!admins'));   ok('!admins responde no PV', s._texto().includes('admin')); }
+  { const s = await cmd(mkMsg('!regras'));   ok('!regras sem regras',     s._texto().includes('Nenhuma')); }
+  { const s = await cmd(mkMsg('!avisos'));   ok('!avisos responde no PV', s._texto().includes('0')); }
 
   { await cmd(mkMsg('!setregras Proibido spam'));
     const s2 = await cmd(mkMsg('!regras'));
-    ok('!setregras + !regras', (s2._last()?.msg?.text || '').includes('spam')); }
+    ok('!setregras + !regras', s2._texto().includes('spam')); }
 
   seguranca.limparTudo();
-  { const s = await cmd(mkMsg('!config'));                 ok('!config painel',        (s._last()?.msg?.text || '').toUpperCase().includes('CONFIGURA')); }
-  { const s = await cmd(mkMsg('!config antilink on'));     ok('!config antilink on',   (s._last()?.msg?.text || '').includes('antilink')); }
-  { const s = await cmd(mkMsg('!config antiflood off'));   ok('!config antiflood off', (s._last()?.msg?.text || '').includes('antiflood')); }
-  { const s = await cmd(mkMsg('!config maxavisos 5'));     ok('!config maxavisos 5',   (s._last()?.msg?.text || '').includes('5')); }
-  { const s = await cmd(mkMsg('!config maxavisos 0'));     ok('!config maxavisos 0 rejeita', (s._last()?.msg?.text || '').includes('!')); }
-  { const s = await cmd(mkMsg('!cfg'));                    ok('!cfg alias',            (s._last()?.msg?.text || '').toUpperCase().includes('CONFIGURA')); }
+  { const s = await cmd(mkMsg('!config'));                 ok('!config painel',        s._texto().toUpperCase().includes('CONFIGURA')); }
+  { const s = await cmd(mkMsg('!config antilink on'));     ok('!config antilink on',   s._texto().includes('antilink')); }
+  { const s = await cmd(mkMsg('!config antiflood off'));   ok('!config antiflood off', s._texto().includes('antiflood')); }
+  { const s = await cmd(mkMsg('!config maxavisos 5'));     ok('!config maxavisos 5',   s._texto().includes('5')); }
+  { const s = await cmd(mkMsg('!config maxavisos 0'));     ok('!config maxavisos 0 rejeita', s._texto().includes('!')); }
+  { const s = await cmd(mkMsg('!cfg'));                    ok('!cfg alias',            s._texto().toUpperCase().includes('CONFIGURA')); }
 
   seguranca.limparTudo();
   { db.resetarAvisos(GJID, 'membro1@s.whatsapp.net');
+    db.limparHistoricoAvisos(GJID, 'membro1@s.whatsapp.net');
     const s = await cmd(mkMsgMencao('!avisar', 'membro1@s.whatsapp.net'));
-    ok('!avisar resposta', (s._last()?.msg?.text || '').includes('Aviso'));
-    ok('!avisar bd', db.getAvisos(GJID, 'membro1@s.whatsapp.net') === 1); }
+    ok('!avisar resposta no PV', s._texto().includes('Aviso'));
+    ok('!avisar bd', db.getAvisos(GJID, 'membro1@s.whatsapp.net') === 1);
+    ok('!avisar salva historico', db.getHistoricoAvisos(GJID, 'membro1@s.whatsapp.net').length === 1); }
 
   { const s = await cmd(mkMsgMencao('!avisos', 'membro1@s.whatsapp.net'));
-    ok('!avisos mencionado', (s._last()?.msg?.text || '').includes('1')); }
+    ok('!avisos mostra contagem', s._texto().includes('1'));
+    ok('!avisos mostra historico', s._texto().includes('Hist')); }
 
   { const s = await cmd(mkMsgMencao('!resetar', 'membro1@s.whatsapp.net'));
     ok('!resetar zera bd', db.getAvisos(GJID, 'membro1@s.whatsapp.net') === 0);
-    ok('!resetar confirma', (s._last()?.msg?.text || '').length > 0); }
+    ok('!resetar limpa historico', db.getHistoricoAvisos(GJID, 'membro1@s.whatsapp.net').length === 0);
+    ok('!resetar confirma no PV', s._texto().length > 0); }
 
   { const s = await cmd(mkMsgMencao('!silenciar 60', 'membro1@s.whatsapp.net'));
     ok('!silenciar cria', db.getSilenciado(GJID, 'membro1@s.whatsapp.net') !== null);
-    ok('!silenciar confirma', (s._last()?.msg?.text || '').includes('ilen')); }
+    ok('!silenciar confirma no PV', s._texto().includes('ilen')); }
 
   { const s = await cmd(mkMsgMencao('!dessilenciar', 'membro1@s.whatsapp.net'));
     ok('!dessilenciar remove', db.getSilenciado(GJID, 'membro1@s.whatsapp.net') === null);
-    ok('!dessilenciar confirma', (s._last()?.msg?.text || '').length > 0); }
+    ok('!dessilenciar confirma no PV', s._texto().length > 0); }
 
   { const s = await cmd(mkMsgMencao('!dessilenciar', 'membro1@s.whatsapp.net'));
-    ok('!dessilenciar sem silencio', s._last()?.msg?.text?.length > 0); }
+    ok('!dessilenciar sem silencio confirma', s._texto().length > 0); }
 
   { db.addPalavra(GJID, 'palavrateste');
     const s = await cmd(mkMsg('!palavras'));
-    ok('!palavras lista', (s._last()?.msg?.text || '').includes('palavrateste')); }
+    ok('!palavras lista no PV', s._texto().includes('palavrateste')); }
 
   seguranca.limparTudo();
   { await cmd(mkMsg('!addpalavra nova')); ok('!addpalavra adiciona', db.listarPalavrasProibidas(GJID).includes('nova')); }
@@ -220,26 +244,26 @@ async function run() {
 
   { const s = await cmd(mkMsg('!setboasvindas Ola {nome}!'));
     ok('!setboasvindas salva', db.getGrupo(GJID)?.boasvindas_texto?.includes('Ola'));
-    ok('!setboasvindas confirma', s._last()?.msg?.text?.includes('!')); }
+    ok('!setboasvindas confirma no PV', s._texto().includes('!')); }
 
   { const s = await cmd(mkMsg('!setsaida Tchau {nome}!'));
     ok('!setsaida salva', db.getGrupo(GJID)?.saida_texto?.includes('Tchau'));
-    ok('!setsaida confirma', s._last()?.msg?.text?.includes('!')); }
+    ok('!setsaida confirma no PV', s._texto().includes('!')); }
 
   seguranca.limparTudo();
-  { const s = await cmd(mkMsg('!trancar'));     ok('!trancar responde',    s._last()?.msg?.text?.length > 0); }
-  { const s = await cmd(mkMsg('!destrancar'));  ok('!destrancar responde', s._last()?.msg?.text?.length > 0); }
+  { const s = await cmd(mkMsg('!trancar'));     ok('!trancar responde',    s._texto().length > 0); }
+  { const s = await cmd(mkMsg('!destrancar'));  ok('!destrancar responde', s._texto().length > 0); }
 
   { for (let i = 0; i < 5; i++) buffer.registrar(GJID, { remoteJid: GJID, id: 'b' + i, participant: 'a@s.whatsapp.net' }, 'a@s.whatsapp.net');
     const s = await cmd(mkMsg('!limpar 3'));
     ok('!limpar apaga mensagens', s._sent.some(m => m.msg?.delete));
     ok('!limpar notifica',        s._sent.some(m => (m.msg?.text || '').includes('apaga'))); }
 
-  { const s = await cmd(mkMsg('!banir'));    ok('!banir sem mencao',    (s._last()?.msg?.text || '').length > 0); }
-  { const s = await cmd(mkMsg('!avisar'));   ok('!avisar sem mencao',   (s._last()?.msg?.text || '').length > 0); }
-  { const s = await cmd(mkMsg('!promover')); ok('!promover sem mencao', (s._last()?.msg?.text || '').length > 0); }
-  { const s = await cmd(mkMsg('!rebaixar')); ok('!rebaixar sem mencao', (s._last()?.msg?.text || '').length > 0); }
-  { const s = await cmd(mkMsg('!resetar'));  ok('!resetar sem mencao',  (s._last()?.msg?.text || '').length > 0); }
+  { const s = await cmd(mkMsg('!banir'));    ok('!banir sem mencao',    s._texto().length > 0); }
+  { const s = await cmd(mkMsg('!avisar'));   ok('!avisar sem mencao',   s._texto().length > 0); }
+  { const s = await cmd(mkMsg('!promover')); ok('!promover sem mencao', s._texto().length > 0); }
+  { const s = await cmd(mkMsg('!rebaixar')); ok('!rebaixar sem mencao', s._texto().length > 0); }
+  { const s = await cmd(mkMsg('!resetar'));  ok('!resetar sem mencao',  s._texto().length > 0); }
 
   // ══════════════════════════════════════════════════════════════
   console.log('\nANTILINK / ANTIFLOOD / CAPTIONS');

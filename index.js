@@ -54,6 +54,13 @@ async function salvarQR(qrData) {
 
 // Fora de iniciar() — roda uma unica vez, sem acumular timers a cada reconexao
 setInterval(() => {
+  const limite = Date.now() - 10_000;
+  for (const [k, arr] of _floodMap) {
+    if (!arr.length || arr[arr.length - 1] < limite) _floodMap.delete(k);
+  }
+}, 60_000);
+
+setInterval(() => {
   const expirados = db.getsilenciadosExpirados();
   for (const { jid_grupo, jid_membro } of expirados) {
     db.removerSilenciado(jid_grupo, jid_membro);
@@ -66,6 +73,7 @@ let _iniciando = false;
 let _timerReconexao = null;
 let _baileysVersion = null;
 let _falhas428 = 0;
+let _falhas440 = 0;
 
 function agendarReconexao(ms) {
   if (_timerReconexao) return;
@@ -109,6 +117,7 @@ async function iniciar() {
       if (connection === "open") {
         _iniciando = false;
         _falhas428 = 0;
+        _falhas440 = 0;
         console.log("Conectado ao WhatsApp!");
       }
 
@@ -119,8 +128,15 @@ async function iniciar() {
         console.log("[conexao] Fechada:", code, errMsg);
 
         if (code === DisconnectReason.connectionReplaced || code === 440) {
-          console.log("[conexao] Conflito (440) — aguardando 30s para reconectar...");
-          agendarReconexao(30_000);
+          _falhas440++;
+          if (_falhas440 >= 3) {
+            console.log("[conexao] 3 conflitos 440 seguidos — possível sessão duplicada. Encerrando para evitar bloqueio.");
+            console.log("[conexao] Verifique se o WhatsApp Web está aberto em outro dispositivo ou se há outra instância do bot rodando.");
+            process.exit(0);
+          }
+          const espera440 = 30_000 * _falhas440;
+          console.log(`[conexao] Conflito (440, tentativa ${_falhas440}/3) — aguardando ${espera440 / 1000}s...`);
+          agendarReconexao(espera440);
         } else if (code === 428) {
           _falhas428++;
           const espera = Math.min(30_000 * _falhas428, 300_000);
@@ -149,6 +165,10 @@ async function iniciar() {
           const texto = (g.boasvindas_texto || 'Bem-vindo ao grupo, {nome}! ')
             .replace('{nome}', `@${num}`);
           await sock.sendMessage(jid, { text: texto, mentions: [participante] }).catch(() => {});
+        }
+        if (action === 'remove' || action === 'leave') {
+          db.resetarAvisos(jid, participante);
+          db.limparHistoricoAvisos(jid, participante);
         }
         if ((action === 'remove' || action === 'leave') && g.saida) {
           const texto = (g.saida_texto || 'Ate mais, {nome}! ')
@@ -233,6 +253,30 @@ async function iniciar() {
                 text: `@${num} links nao sao permitidos neste grupo.`,
                 mentions: [autor]
               }).catch(() => {});
+              continue;
+            }
+
+            // Anti-status
+            if (g?.antistatus && msg.message?.groupStatusMentionMessage) {
+              try { await sock.sendMessage(jid, { delete: msg.key }); } catch {}
+              const num = jidParaNumero(autor);
+              const max = g?.maxavisos || 3;
+              const tot = db.addAviso(jid, autor);
+              db.addHistoricoAviso(jid, autor, 'status compartilhado no grupo');
+              if (tot >= max) {
+                db.resetarAvisos(jid, autor);
+                db.limparHistoricoAvisos(jid, autor);
+                try { await sock.groupParticipantsUpdate(jid, [autor], 'remove'); } catch {}
+                await sock.sendMessage(jid, {
+                  text: `@${num} banido por compartilhar status no grupo (${max} avisos).`,
+                  mentions: [autor]
+                }).catch(() => {});
+              } else {
+                await sock.sendMessage(jid, {
+                  text: `@${num} status no grupo não é permitido — aviso *${tot}/${max}*.`,
+                  mentions: [autor]
+                }).catch(() => {});
+              }
               continue;
             }
 

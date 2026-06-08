@@ -8,10 +8,11 @@ Bot de moderação para grupos do WhatsApp, feito para rodar 100% pelo celular v
 - **Anti-flood** — detecta e pune spam de mensagens
 - **Palavras proibidas** — remove mensagens com palavras configuráveis
 - **Silenciar membros** — impede que um membro envie mensagens por X minutos
-- **Sistema de avisos** — acumula avisos e bane automaticamente ao atingir o limite
+- **Sistema de avisos** — acumula avisos com histórico de motivos e bane automaticamente ao atingir o limite
 - **Boas-vindas e saída** — mensagens automáticas personalizáveis
 - **Trancar/destrancar grupo** — restringe envio apenas para admins
 - **Limpar mensagens** — apaga as últimas N mensagens do grupo
+- **Respostas no PV** — comandos de admin respondem no privado, sem poluir o grupo
 - **Configuração por grupo** — cada grupo tem suas próprias configurações
 - **Banco de dados local** — SQLite via sql.js, sem dependência externa
 
@@ -41,11 +42,9 @@ npm start
 Na primeira execução, o bot exibe um QR Code no terminal. Escaneie pelo WhatsApp:
 **Configurações → Aparelhos conectados → Conectar aparelho**
 
-O bot se registra automaticamente como administrador interno ao conectar.
-
 ## Comandos
 
-Todos os comandos usam o prefixo `!`.
+Todos os comandos usam o prefixo `!`. Comandos de admin reagem no grupo e enviam a resposta no seu PV.
 
 ### Públicos (qualquer membro)
 | Comando | Descrição |
@@ -59,11 +58,11 @@ Todos os comandos usam o prefixo `!`.
 | `!ping` | Verifica latência do bot |
 | `!info` | Status e informações do grupo |
 | `!admins` | Lista os admins do grupo |
-| `!avisos [@membro]` | Ver avisos de um membro |
+| `!avisos [@membro]` | Ver avisos e histórico de motivos |
 | `!banir @membro` | Remove o membro do grupo |
 | `!avisar @membro [motivo]` | Adiciona um aviso ao membro |
 | `!resetar @membro` | Zera os avisos do membro |
-| `!silenciar @membro [min]` | Silencia por X minutos (padrão: 60) |
+| `!silenciar @membro [min]` | Silencia por X minutos (padrão: 30) |
 | `!dessilenciar @membro` | Remove silêncio |
 | `!promover @membro` | Promove a admin |
 | `!rebaixar @membro` | Remove admin |
@@ -74,6 +73,7 @@ Todos os comandos usam o prefixo `!`.
 | `!config antilink on/off` | Ativa/desativa anti-link |
 | `!config antiflood on/off` | Ativa/desativa anti-flood |
 | `!config maxavisos <n>` | Define limite de avisos antes do ban |
+| `!config floodlimite <n>` | Define limite de mensagens por 10s |
 | `!setregras <texto>` | Define as regras do grupo |
 | `!setboasvindas <msg>` | Mensagem de boas-vindas (`{nome}` = menção) |
 | `!setsaida <msg>` | Mensagem de saída (`{nome}` = menção) |

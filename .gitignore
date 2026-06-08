@@ -14,3 +14,4 @@ node_modules/
 *.log
 npm-debug.log*
 data/qrcode.png
+data/bot.pid

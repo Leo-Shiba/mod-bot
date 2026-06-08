@@ -1,5 +1,5 @@
 // Autoria Leo-Shiba GitHub
-const { extrairMencionado, jidParaNumero } = require('../core/utils');
+const { extrairMencionado, jidParaNumero, reagir, responderPV } = require('../core/utils');
 
 module.exports = {
   nome: 'resetar',
@@ -7,13 +7,15 @@ module.exports = {
   descricao: 'Zera os avisos de um membro.',
   apenasAdmin: true,
   apenasGrupo: true,
-  executar: async ({ sock, msg, jid, db }) => {
+  executar: async ({ sock, msg, jid, autor, db }) => {
     const alvo = extrairMencionado(msg);
-    if (!alvo) return sock.sendMessage(jid, { text: '⚠️ Mencione quem resetar.' });
+    if (!alvo) {
+      await reagir(sock, msg, '❌');
+      return responderPV(sock, autor, '⚠️ Mencione quem resetar.');
+    }
     db.resetarAvisos(jid, alvo);
-    await sock.sendMessage(jid, {
-      text: `✅ Avisos de @${jidParaNumero(alvo)} zerados.`,
-      mentions: [alvo],
-    });
+    db.limparHistoricoAvisos(jid, alvo);
+    await reagir(sock, msg, '✅');
+    await responderPV(sock, autor, `✅ Avisos de @${jidParaNumero(alvo)} zerados.`);
   },
 };

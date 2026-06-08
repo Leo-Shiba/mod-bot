@@ -2,12 +2,19 @@
 const fs = require('fs');
 const path = require('path');
 const config = require('../config');
+const { reagir } = require('./utils');
 const seguranca = require('./seguranca');
 const comandos = new Map();
 const _adminCache = new Map();
 const ADMB_TTL = 60_000;
 
 function invalidarCacheAdmin(j) { _adminCache.delete(j); }
+setInterval(() => {
+  const limite = Date.now() - ADMB_TTL;
+  for (const [k, v] of _adminCache) {
+    if (v.ts < limite) _adminCache.delete(k);
+  }
+}, ADMB_TTL);
 
 async function getAdmins(sock, jid) {
   const cache = _adminCache.get(jid);
@@ -45,14 +52,12 @@ async function tratarMensagem({ sock, msg, db, buffer }) {
   const partes = texto.slice(config.prefixo.length).trim().split(/\s+/);
   const nome = partes.shift()?.toLowerCase();
   const args = partes;
+  const textoArgs = texto.slice(config.prefixo.length).replace(/^\S+/, '').replace(/^\s/, '');
   const cmd = comandos.get(nome);
   const autor = msg.key.participant || msg.key.remoteJid;
   if (!cmd) return;
 
-  if (!isGroup && cmd.apenasGrupo) {
-    await sock.sendMessage(jid, { text: '❌ Este comando só funciona em grupos.' });
-    return;
-  }
+  if (!isGroup) return;
 
   let temPermissao = true;
   if (cmd.apenasAdmin) {
@@ -76,10 +81,10 @@ async function tratarMensagem({ sock, msg, db, buffer }) {
 
   const bloq = await seguranca.processar({ sock, numero: autor.split('@')[0], jid });
   if (bloq) return;
-  if (!temPermissao) { await sock.sendMessage(jid, { text: '🚫 Apenas para admins.' }); return; }
+  if (!temPermissao) { await reagir(sock, msg, '❌'); return; }
 
   try {
-    await cmd.executar({ sock, msg, jid, autor, args, db, buffer, nomeCmd: nome, comandos: listar });
+    await cmd.executar({ sock, msg, jid, autor, args, textoArgs, db, buffer, nomeCmd: nome, comandos: listar });
   } catch (err) { await sock.sendMessage(jid, { text: '❌ Erro: ' + err.message }); }
 }
 

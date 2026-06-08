@@ -8,4 +8,12 @@ function extrairMencionado(msg) {
 }
 function jidParaNumero(jid) { return jid.split('@')[0].replace(/[.:]\d+$/, ''); }
 function formatarHora(ts) { return new Date(ts).toLocaleString('pt-BR', { timeZone: 'America/Belem' }); }
-module.exports = { extrairMencionado, jidParaNumero, formatarHora };
+
+async function reagir(sock, msg, emoji) {
+  await sock.sendMessage(msg.key.remoteJid, { react: { text: emoji, key: msg.key } }).catch(() => {});
+}
+async function responderPV(sock, autor, texto, extra = {}) {
+  await sock.sendMessage(autor, { text: texto, ...extra }).catch(() => {});
+}
+
+module.exports = { extrairMencionado, jidParaNumero, formatarHora, reagir, responderPV };

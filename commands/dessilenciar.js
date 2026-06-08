@@ -1,22 +1,26 @@
 // Autoria Leo-Shiba GitHub
-const { extrairMencionado, jidParaNumero } = require('../core/utils');
+const { extrairMencionado, jidParaNumero, reagir, responderPV } = require('../core/utils');
 module.exports = {
   nome: 'dessilenciar',
   aliases: ['unmute'],
   descricao: 'Remove o silêncio de um membro.',
   apenasAdmin: true,
   apenasGrupo: true,
-  executar: async ({ sock, msg, jid, db }) => {
+  executar: async ({ sock, msg, jid, autor, db }) => {
     const alvo = extrairMencionado(msg);
-    if (!alvo) return sock.sendMessage(jid, { text: '❌ Mencione quem dessilenciar.' });
+    if (!alvo) {
+      await reagir(sock, msg, '❌');
+      return responderPV(sock, autor, '❌ Mencione quem dessilenciar.');
+    }
     const num = jidParaNumero(alvo);
     const eraSilenciado = db.getSilenciado(jid, alvo);
     db.removerSilenciado(jid, alvo);
     db.resetarSilencioAvisos(jid, alvo);
-    if (!eraSilenciado) return sock.sendMessage(jid, { text: `ℹ️ @${num} não estava silenciado.`, mentions: [alvo] });
-    await sock.sendMessage(jid, {
-      text: `🔊 @${num} foi dessilenciado.`,
-      mentions: [alvo]
-    });
+    await reagir(sock, msg, eraSilenciado ? '🔊' : 'ℹ️');
+    await responderPV(sock, autor,
+      eraSilenciado
+        ? `🔊 @${num} foi dessilenciado.`
+        : `ℹ️ @${num} não estava silenciado.`
+    );
   }
 };

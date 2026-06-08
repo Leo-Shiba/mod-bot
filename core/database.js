@@ -37,6 +37,13 @@ function init() {
         avisos INTEGER DEFAULT 0,
         PRIMARY KEY (jid_grupo, numero)
       );
+      CREATE TABLE IF NOT EXISTS historico_avisos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        jid_grupo TEXT NOT NULL,
+        numero TEXT NOT NULL,
+        motivo TEXT NOT NULL,
+        data INTEGER NOT NULL
+      );
       CREATE TABLE IF NOT EXISTS palavras (
         jid_grupo TEXT NOT NULL,
         palavra TEXT NOT NULL,
@@ -59,7 +66,9 @@ function init() {
         ts INTEGER NOT NULL
       );
     `);
+    try { db.run('DELETE FROM cmd_uso WHERE ts < ' + (Date.now() - 86400000)); } catch {}
     try { db.run('ALTER TABLE grupos ADD COLUMN floodlimite INTEGER DEFAULT 5'); } catch {}
+    try { db.run('ALTER TABLE grupos ADD COLUMN antistatus INTEGER DEFAULT 0'); } catch {}
     save();
   });
 }
@@ -105,7 +114,7 @@ function setGrupoNome(jid, nome) { run('UPDATE grupos SET nome = ? WHERE jid = ?
 function marcarRemovido(jid) { run('UPDATE grupos SET removido = 1 WHERE jid = ?', [jid]); }
 
 const CAMPOS_VALIDOS = new Set([
-  'antilink', 'antiflood', 'boasvindas', 'saida',
+  'antilink', 'antiflood', 'boasvindas', 'saida', 'antistatus',
   'maxavisos', 'floodlimite', 'boasvindas_texto', 'saida_texto', 'regras',
 ]);
 function setConfig(jid, campo, valor) {
@@ -125,6 +134,18 @@ function addAviso(jid_grupo, numero) {
 }
 function resetarAvisos(jid_grupo, numero) {
   run('DELETE FROM avisos WHERE jid_grupo = ? AND numero = ?', [jid_grupo, numero]);
+}
+
+function addHistoricoAviso(jid_grupo, numero, motivo) {
+  run('INSERT INTO historico_avisos (jid_grupo, numero, motivo, data) VALUES (?, ?, ?, ?)',
+    [jid_grupo, numero, motivo, Date.now()]);
+}
+function getHistoricoAvisos(jid_grupo, numero) {
+  return all('SELECT motivo, data FROM historico_avisos WHERE jid_grupo = ? AND numero = ? ORDER BY data ASC',
+    [jid_grupo, numero]);
+}
+function limparHistoricoAvisos(jid_grupo, numero) {
+  run('DELETE FROM historico_avisos WHERE jid_grupo = ? AND numero = ?', [jid_grupo, numero]);
 }
 
 function listarPalavrasProibidas(jid_grupo) {
@@ -180,6 +201,7 @@ module.exports = {
   init, save,
   registrarGrupo, getGrupo, listarTodosGrupos, setGrupoNome, marcarRemovido, setConfig,
   getAvisos, addAviso, resetarAvisos,
+  addHistoricoAviso, getHistoricoAvisos, limparHistoricoAvisos,
   listarPalavrasProibidas, addPalavra, removerPalavra,
   addSilenciado, getSilenciado, removerSilenciado, getsilenciadosExpirados,
   addSilencioAviso, getSilencioAvisos, resetarSilencioAvisos,

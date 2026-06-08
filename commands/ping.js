@@ -1,11 +1,13 @@
 // Autoria Leo-Shiba GitHub
+const { reagir, responderPV } = require('../core/utils');
 module.exports = {
   nome: 'ping',
   descricao: 'Verifica se o bot está online.',
   apenasAdmin: true,
-  executar: async ({ sock, jid, msg }) => {
-    const inicio = msg.messageTimestamp * 1000;
-    const latencia = Date.now() - inicio;
-    await sock.sendMessage(jid, { text: `🏓 Pong! ${latencia}ms` });
+  apenasGrupo: true,
+  executar: async ({ sock, msg, autor }) => {
+    const latencia = Date.now() - msg.messageTimestamp * 1000;
+    await reagir(sock, msg, '🏓');
+    await responderPV(sock, autor, `🏓 Pong! *${latencia}ms*`);
   },
 };

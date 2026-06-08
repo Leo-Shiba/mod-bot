@@ -1,11 +1,12 @@
 // Autoria Leo-Shiba GitHub
+const { reagir, responderPV } = require('../core/utils');
 module.exports = {
   nome: 'palavras',
-  aliases: ['addpalavra', 'rmpalavra'],
+  aliases: ['addpalavra', 'rmpalavra', 'words', 'addword', 'rmword'],
   descricao: 'Gerencia palavras proibidas.',
   apenasAdmin: true,
   apenasGrupo: true,
-  executar: async ({ sock, jid, args, db, nomeCmd }) => {
+  executar: async ({ sock, msg, jid, autor, args, db, nomeCmd }) => {
     let acao, palavraArgs;
 
     if (nomeCmd === 'addpalavra') {
@@ -22,32 +23,34 @@ module.exports = {
 
     if (!acao) {
       const lista = db.listarPalavrasProibidas(jid);
-      return sock.sendMessage(jid, {
-        text: lista.length
+      await reagir(sock, msg, '✅');
+      return responderPV(sock, autor,
+        lista.length
           ? `🚫 *Palavras proibidas (${lista.length}):*\n${lista.map((p, i) => `${i + 1}. ${p}`).join('\n')}`
-          : 'ℹ️ Nenhuma palavra proibida cadastrada.',
-      });
+          : 'ℹ️ Nenhuma palavra proibida cadastrada.'
+      );
     }
 
     if (acao === 'add' && pal) {
       db.addPalavra(jid, pal);
-      return sock.sendMessage(jid, { text: `✅ *"${pal}"* adicionada às palavras proibidas.` });
+      await reagir(sock, msg, '✅');
+      return responderPV(sock, autor, `✅ *"${pal}"* adicionada às palavras proibidas.`);
     }
 
     if (acao === 'rm' && pal) {
       db.removerPalavra(jid, pal);
-      return sock.sendMessage(jid, { text: `✅ *"${pal}"* removida das palavras proibidas.` });
+      await reagir(sock, msg, '✅');
+      return responderPV(sock, autor, `✅ *"${pal}"* removida das palavras proibidas.`);
     }
 
-    await sock.sendMessage(jid, {
-      text: [
-        '📋 *Uso:*',
-        '!palavras — listar todas',
-        '!palavras add <palavra>',
-        '!palavras rm <palavra>',
-        '!addpalavra <palavra>',
-        '!rmpalavra <palavra>',
-      ].join('\n'),
-    });
+    await reagir(sock, msg, '❓');
+    await responderPV(sock, autor, [
+      '📋 *Uso:*',
+      '!palavras — listar todas',
+      '!palavras add <palavra>',
+      '!palavras rm <palavra>',
+      '!addpalavra <palavra>',
+      '!rmpalavra <palavra>',
+    ].join('\n'));
   },
 };

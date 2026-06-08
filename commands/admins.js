@@ -1,20 +1,20 @@
 // Autoria Leo-Shiba GitHub
-const { jidParaNumero } = require('../core/utils');
+const { jidParaNumero, reagir, responderPV } = require('../core/utils');
 module.exports = {
   nome: 'admins',
   descricao: 'Lista os admins do grupo.',
   apenasAdmin: true,
   apenasGrupo: true,
-  executar: async ({ sock, jid }) => {
+  executar: async ({ sock, msg, jid, autor }) => {
     let meta;
     try { meta = await sock.groupMetadata(jid); } catch {
-      return sock.sendMessage(jid, { text: '❌ Erro ao obter lista de admins.' });
+      return responderPV(sock, autor, '❌ Erro ao obter lista de admins.');
     }
     const admins = meta.participants.filter(p => p.admin);
-    if (!admins.length) return sock.sendMessage(jid, { text: 'Sem admins no grupo.' });
-    await sock.sendMessage(jid, {
-      text: `👑 *Admins (${admins.length}):*\n${admins.map(a => `• @${jidParaNumero(a.id)}${a.admin === 'superadmin' ? ' 👑' : ''}`).join('\n')}`,
-      mentions: admins.map(a => a.id)
-    });
+    await reagir(sock, msg, '👑');
+    if (!admins.length) return responderPV(sock, autor, 'Sem admins no grupo.');
+    await responderPV(sock, autor,
+      `👑 *Admins (${admins.length}):*\n${admins.map(a => `• @${jidParaNumero(a.id)}${a.admin === 'superadmin' ? ' 👑' : ''}`).join('\n')}`
+    );
   }
 };
