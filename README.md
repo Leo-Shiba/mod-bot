@@ -1,56 +1,71 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=25D366&height=200&section=header&text=Mod-Bot&fontSize=80&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Bot%20de%20Modera%C3%A7%C3%A3o%20para%20WhatsApp&descAlignY=60&descSize=22&descColor=ffffff" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=Mod-Bot&fontSize=85&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Bot%20de%20Moderação%20para%20WhatsApp&descAlignY=62&descSize=22&descColor=ffffffcc" width="100%"/>
+
+<br/>
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=25D366&center=true&vCenter=true&width=600&lines=Bot+de+moderação+para+WhatsApp+%F0%9F%94%A5;Rode+direto+no+Android+via+Termux+%F0%9F%93%B1;Sem+servidor.+Sem+mensalidade.+%E2%9C%85;Instala+em+minutos+e+funciona+24h+%F0%9F%9A%80)](https://git.io/typing-svg)
 
 <br/>
 
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-Bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://github.com/Leo-Shiba/mod-bot)
 [![Node.js](https://img.shields.io/badge/Node.js-22+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
-[![Baileys](https://img.shields.io/badge/Baileys-latest-0078D4?style=for-the-badge)](https://github.com/WhiskeySockets/Baileys)
-[![Termux](https://img.shields.io/badge/Termux-Android-black?style=for-the-badge&logo=android&logoColor=white)](https://github.com/termux/termux-app/releases/latest)
-[![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow?style=for-the-badge)](./LICENSE)
+[![Baileys](https://img.shields.io/badge/Baileys-6.7.9-0078D4?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJDNi40NyAyIDIgNi40NyAyIDEyczQuNDcgMTAgMTAgMTAgMTAtNC40NyAxMC0xMFMxNy41MyAyIDEyIDJ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+&logoColor=white)](https://github.com/WhiskeySockets/Baileys)
+[![Termux](https://img.shields.io/badge/Termux-Android-black?style=for-the-badge&logo=android&logoColor=3DDC84)](https://github.com/termux/termux-app/releases/latest)
+[![Licença](https://img.shields.io/badge/Licença-MIT-F7DF1E?style=for-the-badge&logo=opensourceinitiative&logoColor=black)](./LICENSE)
 
 <br/>
 
-> **Bot de moderação para grupos do WhatsApp, feito para rodar 100% pelo celular via Termux.**
-> Sem servidor, sem VPS, sem custo.
+[![Stars](https://img.shields.io/github/stars/Leo-Shiba/mod-bot?style=social)](https://github.com/Leo-Shiba/mod-bot/stargazers)
+[![Forks](https://img.shields.io/github/forks/Leo-Shiba/mod-bot?style=social)](https://github.com/Leo-Shiba/mod-bot/network)
 
 <br/>
 
-[📱 Instalação](#-tutorial--instalação-no-termux-passo-a-passo) · [💬 Comandos](#-comandos) · [✨ Funcionalidades](#-funcionalidades) · [🗂️ Estrutura](#️-estrutura-do-projeto)
+> 💬 **Bot completo de moderação de grupos WhatsApp, feito para rodar direto no celular via Termux.**  
+> Sem servidor. Sem mensalidade. Instala em minutos e funciona 24h no seu Android.
+
+<br/>
+
+[📥 Instalação](#-instalação-no-celular-android) · [⚙️ Comandos](#️-comandos) · [🤖 Automações](#-automações) · [🔧 Problemas](#-solução-de-problemas) · [📁 Estrutura](#-estrutura-do-projeto)
 
 </div>
 
 ---
 
-## ✨ Funcionalidades
+## ✨ O que o bot faz
 
 <table>
 <tr>
-<td width="50%">
+<td align="center" width="25%">
 
-**🛡️ Proteção**
-| | Descrição |
-|---|---|
-| 🔗 **Anti-link** | Apaga mensagens com links automaticamente |
-| 🌊 **Anti-flood** | Detecta e pune spam de mensagens |
-| 🚫 **Palavras proibidas** | Remove mensagens com palavras configuráveis |
-| 📸 **Anti-status** | Bloqueia quando alguém compartilha status no grupo |
-| 🔇 **Silenciar** | Impede que um membro envie mensagens por X minutos |
-| ⚠️ **Sistema de avisos** | Acumula avisos e bane ao atingir o limite |
+### 🛡️ Moderação
+Banir · Avisar · Silenciar  
+Sistema de avisos automático  
+Ban ao atingir o limite
 
 </td>
-<td width="50%">
+<td align="center" width="25%">
 
-**⚙️ Gestão**
-| | Descrição |
-|---|---|
-| 👋 **Boas-vindas e saída** | Mensagens automáticas personalizáveis |
-| 🔒 **Trancar grupo** | Restringe envio apenas para admins |
-| 🗑️ **Limpar mensagens** | Apaga as últimas N mensagens |
-| 👑 **Promover / rebaixar** | Gerencia admins do grupo |
-| ⚙️ **Config por grupo** | Cada grupo tem suas próprias configurações |
-| 💬 **Respostas no PV** | Comandos de admin respondem no privado |
+### 🤖 Automações
+Anti-link · Anti-flood  
+Palavras proibidas  
+Boas-vindas e despedida
+
+</td>
+<td align="center" width="25%">
+
+### 👥 Gestão
+Promover · Rebaixar · Trancar  
+Regras · Limpeza em massa  
+Histórico de infrações
+
+</td>
+<td align="center" width="25%">
+
+### 📊 Informações
+Stats do grupo · Lista de admins  
+Histórico de avisos  
+Painel de configurações
 
 </td>
 </tr>
@@ -58,226 +73,301 @@
 
 ---
 
-## 📱 Tutorial — Instalação no Termux (passo a passo)
+## 🖼️ Guia Visual de Comandos
 
-> O bot roda direto no seu Android. Siga os passos abaixo do zero.
+<div align="center">
 
-### 1. Instalar o Termux
+<img src="./assets/comandos-banner.svg" alt="Referência de Comandos" width="100%"/>
 
-> [!WARNING]
-> **Não use a versão da Play Store** — ela está desatualizada e vai dar erro.
-
-1. Acesse **[github.com/termux/termux-app/releases/latest](https://github.com/termux/termux-app/releases/latest)** pelo celular
-2. Baixe o arquivo **`termux-app_v*.apk`** (universal ou arm64-v8a para a maioria dos celulares)
-3. Instale o APK e abra o Termux
+</div>
 
 ---
 
-### 2. Configurar o Termux
+## 📲 Instalação no celular (Android)
 
-Cole cada bloco de comandos no Termux e aguarde terminar:
+<div align="center">
 
-**Atualizar pacotes:**
+<img src="./assets/instalacao-banner.svg" alt="Guia de Instalação" width="100%"/>
+
+</div>
+
+<br/>
+
+### Pré-requisitos
+
+<div align="center">
+
+| ✅ | Requisito |
+|:--:|:--|
+| 📱 | Android 7.0 ou superior |
+| 📦 | App **Termux** (via GitHub Releases — veja abaixo) |
+| 🌐 | Conexão com internet |
+
+</div>
+
+---
+
+### ![1](https://img.shields.io/badge/PASSO-1-25D366?style=flat-square&logoColor=white) Instalar o Termux
+
+> [!WARNING]
+> **Não use a Play Store** — a versão de lá é desatualizada e quebra a instalação.  
+> **Não use o F-Droid** — baixe diretamente pelo GitHub para garantir a versão mais recente e confiável.
+
+Acesse no celular e instale o `.apk` mais recente:
+
+**👉 https://github.com/termux/termux-app/releases/latest**
+
+---
+
+### ![2](https://img.shields.io/badge/PASSO-2-128C7E?style=flat-square&logoColor=white) Atualizar e instalar dependências
+
+Abra o **Termux** e rode os comandos abaixo, **um de cada vez**:
+
 ```bash
 pkg update && pkg upgrade -y
 ```
 
-**Instalar dependências:**
 ```bash
 pkg install nodejs git -y
 ```
 
-**Verificar instalação:**
 ```bash
 node -v && git --version
 ```
-> Deve mostrar a versão do Node.js (ex: `v26.x.x`) e do Git.
+
+> ✅ Se aparecer as versões do Node e do Git, está tudo certo!
 
 ---
 
-### 3. Clonar o repositório
+### ![3](https://img.shields.io/badge/PASSO-3-25D366?style=flat-square&logoColor=white) Clonar o repositório
 
 ```bash
-git clone https://github.com/Leo-Shiba/mod-bot.git
-cd mod-bot
+git clone https://github.com/Leo-Shiba/mod-bot.git && cd mod-bot
 ```
 
 ---
 
-### 4. Instalar dependências do bot
+### ![4](https://img.shields.io/badge/PASSO-4-128C7E?style=flat-square&logoColor=white) Instalar dependências do bot
 
 ```bash
 npm install
 ```
 
-> Aguarde baixar todos os pacotes. Pode demorar alguns minutos na primeira vez.
+> ⏳ Pode demorar alguns minutos na primeira vez.
 
 ---
 
-### 5. Iniciar o bot
+### ![5](https://img.shields.io/badge/PASSO-5-25D366?style=flat-square&logoColor=white) Iniciar o bot e escanear o QR Code
 
 ```bash
 npm start
 ```
 
-Na **primeira execução** o bot exibe um QR Code no terminal.
+Um **QR Code** aparecerá no terminal. Para conectar:
 
-Abra o WhatsApp no celular e escaneie:
-**Configurações → Aparelhos conectados → Conectar aparelho**
+```
+WhatsApp → Configurações → Aparelhos conectados → Conectar aparelho
+```
 
 > [!TIP]
-> ✅ Quando aparecer `Conectado ao WhatsApp!` o bot está pronto para uso.
+> ✅ Quando aparecer **"Conectado ao WhatsApp!"** o bot está online e pronto!
 
 ---
 
-### 6. Manter o bot rodando
+### ![6](https://img.shields.io/badge/PASSO-6-128C7E?style=flat-square&logoColor=white) Manter o bot ligado (recomendado)
 
-Para o bot não parar quando você fechar o Termux:
-
-1. Deslize da esquerda para a direita no Termux para abrir o menu lateral
-2. Toque em **New Session** — isso cria uma nova aba
-3. Na aba com o bot rodando, **não feche** — minimize o Termux
-
-**Ative o Wakelock** para o Termux não ser encerrado pelo sistema:
 ```bash
 termux-wake-lock
 ```
 
----
-
-### 7. Parar o bot
-
-Pressione `Ctrl + C` no terminal onde o bot está rodando.
+> Isso impede o Android de encerrar o Termux com a tela apagada.
 
 ---
 
-### 8. Reiniciar após fechar o Termux
+### 🔁 Religar o bot depois
 
 ```bash
 cd mod-bot && npm start
 ```
 
+Para encerrar: `Ctrl + C`
+
 ---
 
-## 💬 Comandos
+## ⚙️ Comandos
 
-> Todos os comandos usam o prefixo `!`. A maioria também aceita em inglês.
-> Comandos de admin reagem no grupo e enviam a resposta no **seu PV**.
+> Todos os comandos usam o prefixo `!`. Comandos em **PT** e **EN** são aceitos igualmente.
 
-### 🌐 Públicos
+### 🔐 Moderação e Gestão (admins)
 
-| Comando | Descrição |
-|:--|:--|
-| `!regras` / `!rules` | Mostra as regras do grupo |
-
-### 🔐 Moderação _(admin)_
+<div align="center">
 
 | Comando | Alias EN | Descrição |
 |:--|:--|:--|
 | `!banir @membro` | `!kick` | Remove o membro do grupo |
-| `!avisar @membro [motivo]` | `!warn` | Adiciona um aviso ao membro |
-| `!resetar @membro` | `!clearwarn` | Zera os avisos do membro |
-| `!silenciar @membro [min]` | `!mute` | Silencia por X minutos (padrão: 30) |
+| `!avisar @membro [motivo]` | `!warn` | Adiciona aviso (ao atingir o limite → ban) |
+| `!resetar @membro` | `!clearwarn` | Zera os avisos de um membro |
+| `!silenciar @membro [min]` | `!mute` | Silencia temporariamente |
 | `!dessilenciar @membro` | `!unmute` | Remove o silêncio |
-| `!avisos [@membro]` | `!warns` | Ver avisos e histórico de motivos |
-
-### 🏛️ Gestão do grupo _(admin)_
-
-| Comando | Alias EN | Descrição |
-|:--|:--|:--|
-| `!promover @membro` | `!promote` | Promove a admin |
-| `!rebaixar @membro` | `!demote` | Remove admin |
+| `!promover @membro` | `!promote` | Torna o membro administrador |
+| `!rebaixar @membro` | `!demote` | Remove a administração |
 | `!trancar` | `!lock` | Bloqueia envio para não-admins |
 | `!destrancar` | `!unlock` | Libera envio para todos |
-| `!limpar [n]` | `!clear` | Apaga as últimas N mensagens (padrão: 10) |
+| `!limpar [n]` | `!clear` | Apaga as últimas N mensagens (máx 50) |
 
-### ⚙️ Configuração _(admin)_
+</div>
 
-| Comando | Alias EN | Descrição |
-|:--|:--|:--|
-| `!config` | `!cfg` | Painel de configurações do grupo |
-| `!config antilink on/off` | — | Ativa/desativa anti-link |
-| `!config antiflood on/off` | — | Ativa/desativa anti-flood |
-| `!config antistatus on/off` | — | Ativa/desativa anti-status |
-| `!config boasvindas on/off` | — | Ativa/desativa boas-vindas |
-| `!config saida on/off` | — | Ativa/desativa mensagem de saída |
-| `!config maxavisos <n>` | — | Limite de avisos antes do ban |
-| `!config floodlimite <n>` | — | Mensagens por 10s antes do flood |
-| `!setregras <texto>` | `!setrules` | Define as regras do grupo |
-| `!setboasvindas <msg>` | `!setwelcome` | Mensagem de boas-vindas (`{nome}` = menção) |
-| `!setsaida <msg>` | `!setleave` | Mensagem de saída (`{nome}` = menção) |
+### ⚙️ Configuração (admins)
 
-### 🚫 Palavras proibidas _(admin)_
-
-| Comando | Alias EN | Descrição |
-|:--|:--|:--|
-| `!palavras` | `!words` | Lista as palavras proibidas |
-| `!addpalavra <palavra>` | `!addword` | Adiciona palavra proibida |
-| `!rmpalavra <palavra>` | `!rmword` | Remove palavra proibida |
-
-### 🛠️ Utilitários _(admin)_
+<div align="center">
 
 | Comando | Descrição |
 |:--|:--|
-| `!info` | Status e informações do grupo |
-| `!admins` | Lista os admins do grupo |
-| `!ping` | Verifica latência do bot |
-| `!ajuda` / `!help` | Lista todos os comandos |
+| `!config` / `!cfg` | Painel de configurações do grupo |
+| `!config antilink on/off` | Liga/desliga bloqueio de links |
+| `!config antiflood on/off` | Liga/desliga controle de spam |
+| `!config antistatus on/off` | Liga/desliga anti-status |
+| `!config boasvindas on/off` | Liga/desliga mensagem de boas-vindas |
+| `!config saida on/off` | Liga/desliga mensagem de despedida |
+| `!config maxavisos <n>` | Define o limite de avisos antes do ban |
+| `!config floodlimite <n>` | Msgs por 10s antes de acionar o anti-flood |
+| `!setboasvindas <msg>` / `reset` | Personaliza a mensagem de entrada |
+| `!setsaida <msg>` / `reset` | Personaliza a mensagem de saída |
+| `!setregras <texto>` | Define as regras do grupo |
+| `!palavras` | Lista palavras proibidas |
+| `!addpalavra <palavra>` | Adiciona palavra à lista negra |
+| `!rmpalavra <palavra>` | Remove palavra da lista negra |
+
+</div>
+
+### 🌐 Comandos Públicos
+
+<div align="center">
+
+| Comando | Alias EN | Descrição |
+|:--|:--|:--|
+| `!regras` | `!rules` | Mostra as regras do grupo |
+| `!avisos [@membro]` | `!warns` | Consulta avisos de um membro |
+| `!admins` | — | Lista os administradores |
+| `!info` | — | Estatísticas do grupo |
+| `!ping` | — | Latência do bot |
+| `!ajuda` | `!help` | Lista todos os comandos |
+
+</div>
 
 ---
 
-## ⚙️ Configuração
+## 🤖 Automações
 
-O arquivo `.env` é opcional. Copie o exemplo se quiser personalizar:
+<div align="center">
+
+| Automação | Padrão | Comportamento |
+|:--|:--:|:--|
+| 👋 Boas-vindas | ✅ Ligado | Mensagem ao entrar no grupo |
+| 🚪 Despedida | ⛔ Desligado | Mensagem ao sair do grupo |
+| 🔗 Anti-link | ⛔ Desligado | Apaga mensagens com links |
+| 💬 Anti-flood | ⛔ Desligado | Avisa quem envia mensagens rápido demais |
+| 📸 Anti-status | ⛔ Desligado | Impede visualização de status automática |
+| 🤬 Palavras proibidas | ✅ Sempre ativo | Apaga mensagens com palavras da lista negra |
+| 🔨 Ban automático | ✅ Ativo | Bane ao atingir o limite de avisos (padrão: 3) |
+
+</div>
+
+### Personalizar mensagens
+
+Use `{nome}` para mencionar o membro automaticamente:
 
 ```bash
-cp .env.example .env
+!setboasvindas Bem-vindo(a) ao grupo, {nome}! Leia as !regras 📋
+!setsaida Até mais, {nome}! Foi um prazer ter você aqui 👋
 ```
 
 ---
 
-## 🗂️ Estrutura do projeto
+## 🔧 Solução de problemas
+
+<details>
+<summary><b>❓ QR Code não aparece ou expirou</b></summary>
+
+```bash
+rm -rf data/auth && npm start
+```
+</details>
+
+<details>
+<summary><b>❓ Bot parou de responder</b></summary>
+
+```bash
+cd mod-bot && npm start
+```
+O bot reconecta automaticamente na maioria dos casos.
+</details>
+
+<details>
+<summary><b>❓ Erro "pkg: command not found"</b></summary>
+
+Certifique-se de que está usando o **Termux do GitHub**, não da Play Store. Reinstale se necessário.
+</details>
+
+<details>
+<summary><b>❓ Node.js muito antigo (erro no npm install)</b></summary>
+
+```bash
+pkg install nodejs-lts -y
+```
+</details>
+
+<details>
+<summary><b>❓ Bot encerrado com a tela apagada</b></summary>
+
+Execute `termux-wake-lock` e configure o Termux como app sem restrição de bateria:  
+**Configurações → Aplicativos → Termux → Bateria → Sem restrições**
+</details>
+
+---
+
+## 🧱 Estrutura do projeto
 
 ```
 mod-bot/
-├── 📄 index.js          # Conexão WhatsApp, proteções automáticas
-├── 📄 launcher.js       # Auto-reinício + lock de instância única
-├── 📄 config.js         # Configurações gerais
+│
+├── 📄 index.js              # Núcleo: conexão, eventos, anti-flood, anti-link
+├── 📄 launcher.js           # Inicializador com keep-alive
+├── 📄 config.js             # Configurações gerais
 │
 ├── 📂 core/
-│   ├── database.js      # SQLite (sql.js) — sem dependência externa
-│   ├── commandHandler.js # Roteamento de comandos
-│   ├── seguranca.js     # Rate limiting
-│   ├── buffer.js        # Buffer de mensagens (para !limpar)
-│   ├── notificar.js     # Controle de intervalo de notificações
-│   └── utils.js         # Helpers: reagir, responderPV, etc.
+│   ├── commandHandler.js    # Carrega e processa comandos
+│   ├── database.js          # Banco SQLite (avisos, config, grupos)
+│   ├── seguranca.js         # Verificação de permissões
+│   ├── notificar.js         # Notificações para o dono
+│   ├── buffer.js            # Buffer de mensagens para !limpar
+│   └── utils.js             # Funções utilitárias
 │
-├── 📂 commands/         # Um arquivo por comando
+├── 📂 commands/             # Um arquivo por comando
+│   ├── ajuda.js
+│   ├── avisar.js
+│   ├── banir.js
+│   └── ...
 │
-├── 📂 data/
-│   ├── auth/            # Sessão WhatsApp (gitignored)
-│   └── bot.db           # Banco de dados (gitignored)
-│
-└── 🧪 test_bot.js       # 101 testes automatizados
-```
-
----
-
-## 🧪 Testes
-
-```bash
-npm test
+└── 📂 assets/               # Imagens e guias visuais
+    ├── instalacao-banner.svg
+    └── comandos-banner.svg
 ```
 
 ---
 
 ## 📦 Dependências
 
+<div align="center">
+
 | Pacote | Uso |
 |:--|:--|
 | [`@whiskeysockets/baileys`](https://github.com/WhiskeySockets/Baileys) | Conexão com WhatsApp Web |
 | [`pino`](https://getpino.io) | Logger |
 | [`qrcode-terminal`](https://github.com/gtanner/qrcode-terminal) | QR Code no terminal |
+| [`better-sqlite3`](https://github.com/WiseLibs/better-sqlite3) | Banco de dados local |
+
+</div>
 
 ---
 
@@ -291,6 +381,12 @@ Distribuído sob a licença **MIT** — use, modifique e distribua à vontade.
 
 Feito com 💚 por **[Leo-Shiba](https://github.com/Leo-Shiba)**
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=25D366&height=100&section=footer" width="100%"/>
+<br/>
+
+[![GitHub](https://img.shields.io/badge/GitHub-Leo--Shiba-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Leo-Shiba)
+
+<br/>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer" width="100%"/>
 
 </div>
