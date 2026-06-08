@@ -43,9 +43,9 @@ Bot de moderação para grupos do WhatsApp, feito para rodar **100% pelo celular
 
 > ⚠️ **Não use a versão da Play Store** — ela está desatualizada e vai dar erro.
 
-1. Acesse **[f-droid.org/packages/com.termux](https://f-droid.org/packages/com.termux)** pelo celular
-2. Baixe e instale o **Termux via F-Droid**
-3. Abra o Termux
+1. Acesse **[github.com/termux/termux-app/releases/latest](https://github.com/termux/termux-app/releases/latest)** pelo celular
+2. Baixe o arquivo **`termux-app_v*.apk`** (universal ou arm64-v8a para maioria dos celulares)
+3. Instale o APK e abra o Termux
 
 ---
 
