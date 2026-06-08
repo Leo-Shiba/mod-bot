@@ -21,7 +21,7 @@
 
 <br/>
 
-> 🤖 **Bot completo de moderação de grupos WhatsApp, feito para rodar direto no celular via Termux.**  
+> 🤖 **Bot completo de moderação de grupos WhatsApp, feito para rodar direto no celular via Termux.**
 > Sem servidor. Sem mensalidade. Instala em minutos e funciona 24h no seu Android.
 
 <br/>
@@ -39,32 +39,32 @@
 <td align="center" width="25%">
 
 ### 🛡️ Moderação
-Banir · Avisar · Silenciar  
-Sistema de avisos automático  
+Banir · Avisar · Silenciar
+Sistema de avisos automático
 Ban ao atingir o limite
 
 </td>
 <td align="center" width="25%">
 
 ### 🤖 Automações
-Anti-link · Anti-flood  
-Palavras proibidas  
+Anti-link · Anti-flood
+Palavras proibidas
 Boas-vindas e despedida
 
 </td>
 <td align="center" width="25%">
 
 ### 👥 Gestão
-Promover · Rebaixar · Trancar  
-Regras · Limpeza em massa  
+Promover · Rebaixar · Trancar
+Regras · Limpeza em massa
 Histórico de infrações
 
 </td>
 <td align="center" width="25%">
 
 ### 📊 Informações
-Stats do grupo · Lista de admins  
-Histórico de avisos  
+Stats do grupo · Lista de admins
+Histórico de avisos
 Painel de configurações
 
 </td>
@@ -107,10 +107,10 @@ Painel de configurações
 
 ---
 
-### ![1](https://img.shields.io/badge/PASSO-1-FF6B00?style=flat-square&logoColor=white) Instalar o Termux
+### ![1](https://img.shields.io/badge/PASSO-1-FF6B00?style=flat-square&logoColor=white) &nbsp; Instalar o Termux
 
 > [!WARNING]
-> **Não use a Play Store** — a versão de lá é desatualizada e quebra a instalação.  
+> **Não use a Play Store** — a versão de lá é desatualizada e quebra a instalação.
 > **Não use o F-Droid** — baixe diretamente pelo GitHub para garantir a versão mais recente e confiável.
 
 Acesse no celular e instale o `.apk` mais recente:
@@ -119,7 +119,7 @@ Acesse no celular e instale o `.apk` mais recente:
 
 ---
 
-### ![2](https://img.shields.io/badge/PASSO-2-CC4500?style=flat-square&logoColor=white) Atualizar e instalar dependências
+### ![2](https://img.shields.io/badge/PASSO-2-CC4500?style=flat-square&logoColor=white) &nbsp; Atualizar e instalar dependências
 
 Abra o **Termux** e rode os comandos abaixo, **um de cada vez**:
 
@@ -139,7 +139,7 @@ node -v && git --version
 
 ---
 
-### ![3](https://img.shields.io/badge/PASSO-3-FF6B00?style=flat-square&logoColor=white) Clonar o repositório
+### ![3](https://img.shields.io/badge/PASSO-3-FF6B00?style=flat-square&logoColor=white) &nbsp; Clonar o repositório
 
 ```bash
 git clone https://github.com/Leo-Shiba/mod-bot.git && cd mod-bot
@@ -147,7 +147,7 @@ git clone https://github.com/Leo-Shiba/mod-bot.git && cd mod-bot
 
 ---
 
-### ![4](https://img.shields.io/badge/PASSO-4-CC4500?style=flat-square&logoColor=white) Instalar dependências do bot
+### ![4](https://img.shields.io/badge/PASSO-4-CC4500?style=flat-square&logoColor=white) &nbsp; Instalar as dependências do bot
 
 ```bash
 npm install
@@ -157,7 +157,7 @@ npm install
 
 ---
 
-### ![5](https://img.shields.io/badge/PASSO-5-FF6B00?style=flat-square&logoColor=white) Iniciar o bot e escanear o QR Code
+### ![5](https://img.shields.io/badge/PASSO-5-FF6B00?style=flat-square&logoColor=white) &nbsp; Iniciar o bot e escanear o QR Code
 
 ```bash
 npm start
@@ -174,7 +174,7 @@ WhatsApp → Configurações → Aparelhos conectados → Conectar aparelho
 
 ---
 
-### ![6](https://img.shields.io/badge/PASSO-6-CC4500?style=flat-square&logoColor=white) Manter o bot ligado (recomendado)
+### ![6](https://img.shields.io/badge/PASSO-6-CC4500?style=flat-square&logoColor=white) &nbsp; Manter o bot ligado (recomendado)
 
 ```bash
 termux-wake-lock
@@ -264,10 +264,10 @@ Para encerrar: `Ctrl + C`
 | Automação | Padrão | Comportamento |
 |:--|:--:|:--|
 | 👋 Boas-vindas | ✅ Ligado | Mensagem ao entrar no grupo |
-| 🚪 Despedida | ❌ Desligado | Mensagem ao sair do grupo |
-| 🔗 Anti-link | ❌ Desligado | Apaga mensagens com links |
-| 💬 Anti-flood | ❌ Desligado | Avisa quem envia mensagens rápido demais |
-| 📸 Anti-status | ❌ Desligado | Impede visualização de status automática |
+| 🚪 Despedida | 🔴 Desligado | Mensagem ao sair do grupo |
+| 🔗 Anti-link | 🔴 Desligado | Apaga mensagens com links |
+| 💬 Anti-flood | 🔴 Desligado | Avisa quem envia mensagens rápido demais |
+| 📸 Anti-status | 🔴 Desligado | Impede visualização de status automática |
 | 🤬 Palavras proibidas | ✅ Sempre ativo | Apaga mensagens com palavras da lista negra |
 | 🔨 Ban automático | ✅ Ativo | Bane ao atingir o limite de avisos (padrão: 3) |
 
@@ -320,7 +320,7 @@ pkg install nodejs-lts -y
 <details>
 <summary><b>❓ Bot encerrado com a tela apagada</b></summary>
 
-Execute `termux-wake-lock` e configure o Termux como app sem restrição de bateria:  
+Execute `termux-wake-lock` e configure o Termux como app sem restrição de bateria:
 **Configurações → Aplicativos → Termux → Bateria → Sem restrições**
 </details>
 
