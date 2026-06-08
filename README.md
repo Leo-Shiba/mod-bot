@@ -1,121 +1,241 @@
+<div align="center">
+
 # 🛡️ Mod Bot
 
-Bot de moderação para grupos do WhatsApp, feito para rodar 100% pelo celular via **Termux** — sem servidor, sem VPS.
+Bot de moderação para grupos do WhatsApp, feito para rodar **100% pelo celular** via Termux — sem servidor, sem VPS, sem custo.
 
-## Funcionalidades
+[![Node.js](https://img.shields.io/badge/Node.js-22%2B-green?logo=node.js)](https://nodejs.org)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Baileys-25D366?logo=whatsapp)](https://github.com/WhiskeySockets/Baileys)
+[![Termux](https://img.shields.io/badge/Termux-Android-black?logo=android)](https://termux.dev)
+[![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-blue)](LICENSE)
 
-- **Anti-link** — apaga mensagens com links automaticamente
-- **Anti-flood** — detecta e pune spam de mensagens
-- **Palavras proibidas** — remove mensagens com palavras configuráveis
-- **Silenciar membros** — impede que um membro envie mensagens por X minutos
-- **Sistema de avisos** — acumula avisos com histórico de motivos e bane automaticamente ao atingir o limite
-- **Boas-vindas e saída** — mensagens automáticas personalizáveis
-- **Trancar/destrancar grupo** — restringe envio apenas para admins
-- **Limpar mensagens** — apaga as últimas N mensagens do grupo
-- **Respostas no PV** — comandos de admin respondem no privado, sem poluir o grupo
-- **Configuração por grupo** — cada grupo tem suas próprias configurações
-- **Banco de dados local** — SQLite via sql.js, sem dependência externa
+</div>
 
-## Requisitos
+---
 
-- Android com [Termux](https://termux.dev)
-- Node.js >= 22 (`pkg install nodejs`)
-- Git (`pkg install git`)
+## ✨ Funcionalidades
 
-## Instalação
+| Proteção | Descrição |
+|---|---|
+| 🔗 **Anti-link** | Apaga mensagens com links automaticamente |
+| 🌊 **Anti-flood** | Detecta e pune spam de mensagens |
+| 🚫 **Palavras proibidas** | Remove mensagens com palavras configuráveis |
+| 📸 **Anti-status** | Bloqueia quando alguém compartilha status no grupo |
+| 🔇 **Silenciar** | Impede que um membro envie mensagens por X minutos |
+| ⚠️ **Sistema de avisos** | Acumula avisos com histórico e bane ao atingir o limite |
+
+| Gestão | Descrição |
+|---|---|
+| 👋 **Boas-vindas e saída** | Mensagens automáticas personalizáveis |
+| 🔒 **Trancar grupo** | Restringe envio apenas para admins |
+| 🗑️ **Limpar mensagens** | Apaga as últimas N mensagens |
+| 👑 **Promover / rebaixar** | Gerencia admins do grupo |
+| ⚙️ **Config por grupo** | Cada grupo tem suas próprias configurações |
+| 💬 **Respostas no PV** | Comandos de admin respondem no privado |
+
+---
+
+## 📱 Tutorial — Instalação no Termux (passo a passo)
+
+> O bot roda direto no seu Android. Siga os passos abaixo do zero.
+
+### 1. Instalar o Termux
+
+> ⚠️ **Não use a versão da Play Store** — ela está desatualizada e vai dar erro.
+
+1. Acesse **[f-droid.org/packages/com.termux](https://f-droid.org/packages/com.termux)** pelo celular
+2. Baixe e instale o **Termux via F-Droid**
+3. Abra o Termux
+
+---
+
+### 2. Configurar o Termux
+
+Cole cada bloco de comandos no Termux e aguarde terminar:
+
+**Atualizar pacotes:**
+```bash
+pkg update && pkg upgrade -y
+```
+
+**Instalar dependências:**
+```bash
+pkg install nodejs git -y
+```
+
+**Verificar instalação:**
+```bash
+node -v && git --version
+```
+> Deve mostrar a versão do Node.js (ex: `v26.x.x`) e do Git.
+
+---
+
+### 3. Clonar o repositório
 
 ```bash
-# Clone o repositório
 git clone https://github.com/Leo-Shiba/mod-bot.git
 cd mod-bot
+```
 
-# Instale as dependências
+---
+
+### 4. Instalar dependências do bot
+
+```bash
 npm install
 ```
 
-## Primeiro uso
+> Aguarde baixar todos os pacotes. Pode demorar alguns minutos na primeira vez.
+
+---
+
+### 5. Iniciar o bot
 
 ```bash
 npm start
 ```
 
-Na primeira execução, o bot exibe um QR Code no terminal. Escaneie pelo WhatsApp:
+Na **primeira execução** o bot exibe um QR Code no terminal.
+
+Abra o WhatsApp no celular e escaneie:
 **Configurações → Aparelhos conectados → Conectar aparelho**
 
-## Comandos
+> ✅ Quando aparecer `Conectado ao WhatsApp!` o bot está pronto para uso.
 
-Todos os comandos usam o prefixo `!`. Comandos de admin reagem no grupo e enviam a resposta no seu PV.
+---
 
-### Públicos (qualquer membro)
+### 6. Manter o bot rodando
+
+Para o bot não parar quando você fechar o Termux:
+
+1. Deslize da esquerda para a direita no Termux para abrir o menu lateral
+2. Toque em **New Session** — isso cria uma nova aba
+3. Na aba com o bot rodando, **não feche** — minimize o Termux
+
+**Dica:** Ative o **Wakelock** para o Termux não ser encerrado pelo sistema:
+```bash
+termux-wake-lock
+```
+
+---
+
+### 7. Parar o bot
+
+Pressione `Ctrl + C` no terminal onde o bot está rodando.
+
+---
+
+### 8. Reiniciar após fechar o Termux
+
+Se o bot parou, basta rodar novamente:
+```bash
+cd mod-bot && npm start
+```
+
+---
+
+## 💬 Comandos
+
+Todos os comandos usam o prefixo `!`. A maioria também aceita em inglês.  
+Comandos de admin reagem no grupo e enviam a resposta no **seu PV**.
+
+### Públicos
 | Comando | Descrição |
 |---|---|
-| `!regras` | Mostra as regras do grupo |
+| `!regras` / `!rules` | Mostra as regras do grupo |
 
-### Admins
+### Moderação _(admin)_
+| Comando | Alias EN | Descrição |
+|---|---|---|
+| `!banir @membro` | `!kick` | Remove o membro do grupo |
+| `!avisar @membro [motivo]` | `!warn` | Adiciona um aviso ao membro |
+| `!resetar @membro` | `!clearwarn` | Zera os avisos do membro |
+| `!silenciar @membro [min]` | `!mute` | Silencia por X minutos (padrão: 30) |
+| `!dessilenciar @membro` | `!unmute` | Remove o silêncio |
+| `!avisos [@membro]` | `!warns` | Ver avisos e histórico de motivos |
+
+### Gestão do grupo _(admin)_
+| Comando | Alias EN | Descrição |
+|---|---|---|
+| `!promover @membro` | `!promote` | Promove a admin |
+| `!rebaixar @membro` | `!demote` | Remove admin |
+| `!trancar` | `!lock` | Bloqueia envio para não-admins |
+| `!destrancar` | `!unlock` | Libera envio para todos |
+| `!limpar [n]` | `!clear` | Apaga as últimas N mensagens (padrão: 10) |
+
+### Configuração _(admin)_
+| Comando | Alias EN | Descrição |
+|---|---|---|
+| `!config` | `!cfg` | Painel de configurações do grupo |
+| `!config antilink on/off` | — | Ativa/desativa anti-link |
+| `!config antiflood on/off` | — | Ativa/desativa anti-flood |
+| `!config antistatus on/off` | — | Ativa/desativa anti-status |
+| `!config boasvindas on/off` | — | Ativa/desativa boas-vindas |
+| `!config saida on/off` | — | Ativa/desativa mensagem de saída |
+| `!config maxavisos <n>` | — | Limite de avisos antes do ban |
+| `!config floodlimite <n>` | — | Mensagens por 10s antes do flood |
+| `!setregras <texto>` | `!setrules` | Define as regras do grupo |
+| `!setboasvindas <msg>` | `!setwelcome` | Mensagem de boas-vindas (`{nome}` = menção) |
+| `!setsaida <msg>` | `!setleave` | Mensagem de saída (`{nome}` = menção) |
+
+### Palavras proibidas _(admin)_
+| Comando | Alias EN | Descrição |
+|---|---|---|
+| `!palavras` | `!words` | Lista as palavras proibidas |
+| `!addpalavra <palavra>` | `!addword` | Adiciona palavra proibida |
+| `!rmpalavra <palavra>` | `!rmword` | Remove palavra proibida |
+
+### Utilitários _(admin)_
 | Comando | Descrição |
 |---|---|
-| `!ajuda` | Lista todos os comandos |
-| `!ping` | Verifica latência do bot |
 | `!info` | Status e informações do grupo |
 | `!admins` | Lista os admins do grupo |
-| `!avisos [@membro]` | Ver avisos e histórico de motivos |
-| `!banir @membro` | Remove o membro do grupo |
-| `!avisar @membro [motivo]` | Adiciona um aviso ao membro |
-| `!resetar @membro` | Zera os avisos do membro |
-| `!silenciar @membro [min]` | Silencia por X minutos (padrão: 30) |
-| `!dessilenciar @membro` | Remove silêncio |
-| `!promover @membro` | Promove a admin |
-| `!rebaixar @membro` | Remove admin |
-| `!trancar` | Bloqueia envio para não-admins |
-| `!destrancar` | Libera envio para todos |
-| `!limpar [n]` | Apaga as últimas N mensagens (padrão: 10) |
-| `!config` | Painel de configurações do grupo |
-| `!config antilink on/off` | Ativa/desativa anti-link |
-| `!config antiflood on/off` | Ativa/desativa anti-flood |
-| `!config maxavisos <n>` | Define limite de avisos antes do ban |
-| `!config floodlimite <n>` | Define limite de mensagens por 10s |
-| `!setregras <texto>` | Define as regras do grupo |
-| `!setboasvindas <msg>` | Mensagem de boas-vindas (`{nome}` = menção) |
-| `!setsaida <msg>` | Mensagem de saída (`{nome}` = menção) |
-| `!palavras` | Lista palavras proibidas |
-| `!addpalavra <palavra>` | Adiciona palavra proibida |
-| `!rmpalavra <palavra>` | Remove palavra proibida |
+| `!ping` | Verifica latência do bot |
+| `!ajuda` / `!help` | Lista todos os comandos |
 
-## Configuração
+---
 
-O arquivo `.env` é opcional. Copie `.env.example` se quiser personalizar:
+## ⚙️ Configuração
+
+O arquivo `.env` é opcional. Copie o exemplo se quiser personalizar:
 
 ```bash
 cp .env.example .env
 ```
 
-## Estrutura
+---
+
+## 🗂️ Estrutura do projeto
 
 ```
 mod-bot/
-├── index.js          # Ponto de entrada
-├── launcher.js       # Auto-reinício em caso de erro
-├── config.js         # Configurações globais
+├── index.js              # Conexão WhatsApp, proteções automáticas
+├── launcher.js           # Auto-reinício + lock de instância única
 ├── core/
-│   ├── database.js   # Banco de dados SQLite
-│   ├── commandHandler.js
-│   ├── seguranca.js  # Rate limiting
-│   ├── notificar.js
-│   ├── buffer.js     # Buffer de mensagens
-│   └── utils.js
-├── commands/         # Um arquivo por comando
+│   ├── database.js       # SQLite (sql.js) — sem dependência externa
+│   ├── commandHandler.js # Roteamento de comandos
+│   ├── seguranca.js      # Rate limiting
+│   ├── buffer.js         # Buffer de mensagens (para !limpar)
+│   ├── notificar.js      # Controle de intervalo de notificações
+│   └── utils.js          # Helpers: reagir, responderPV, etc.
+├── commands/             # Um arquivo por comando
 ├── data/
-│   ├── auth/         # Sessão WhatsApp (gitignored)
-│   └── bot.db        # Banco de dados (gitignored)
-└── test_bot.js       # Testes automatizados
+│   ├── auth/             # Sessão WhatsApp (gitignored)
+│   └── bot.db            # Banco de dados (gitignored)
+└── test_bot.js           # 101 testes automatizados
 ```
 
-## Testes
+---
+
+## 🧪 Testes
 
 ```bash
 npm test
 ```
 
-## Licença
+---
 
-MIT
+## 📄 Licença
+
+MIT — veja [LICENSE](LICENSE)
