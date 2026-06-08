@@ -1,18 +1,18 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=220&section=header&text=Mod-Bot&fontSize=85&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Bot%20de%20Moderação%20para%20WhatsApp&descAlignY=62&descSize=22&descColor=ffffffcc" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:CC4500,100:FF8C00&height=220&section=header&text=Mod-Bot&fontSize=85&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Bot%20de%20Moderação%20para%20WhatsApp&descAlignY=62&descSize=22&descColor=ffffffcc" width="100%"/>
 
 <br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=25D366&center=true&vCenter=true&width=600&lines=Bot+de+moderação+para+WhatsApp+%F0%9F%94%A5;Rode+direto+no+Android+via+Termux+%F0%9F%93%B1;Sem+servidor.+Sem+mensalidade.+%E2%9C%85;Instala+em+minutos+e+funciona+24h+%F0%9F%9A%80)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1000&color=FF8C00&center=true&vCenter=true&width=600&lines=Bot+de+moderação+para+WhatsApp+🔥;Rode+direto+no+Android+via+Termux+📱;Sem+servidor.+Sem+mensalidade.+✅;Instala+em+minutos+e+funciona+24h+🚀)](https://git.io/typing-svg)
 
 <br/>
 
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-Bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://github.com/Leo-Shiba/mod-bot)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Bot-FF6B00?style=for-the-badge&logo=whatsapp&logoColor=white)](https://github.com/Leo-Shiba/mod-bot)
 [![Node.js](https://img.shields.io/badge/Node.js-22+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
-[![Baileys](https://img.shields.io/badge/Baileys-6.7.9-0078D4?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEyIDJDNi40NyAyIDIgNi40NyAyIDEyczQuNDcgMTAgMTAgMTAgMTAtNC40NyAxMC0xMFMxNy41MyAyIDEyIDJ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+&logoColor=white)](https://github.com/WhiskeySockets/Baileys)
-[![Termux](https://img.shields.io/badge/Termux-Android-black?style=for-the-badge&logo=android&logoColor=3DDC84)](https://github.com/termux/termux-app/releases/latest)
-[![Licença](https://img.shields.io/badge/Licença-MIT-F7DF1E?style=for-the-badge&logo=opensourceinitiative&logoColor=black)](./LICENSE)
+[![Baileys](https://img.shields.io/badge/Baileys-6.7.9-FF8C00?style=for-the-badge&logoColor=white)](https://github.com/WhiskeySockets/Baileys)
+[![Termux](https://img.shields.io/badge/Termux-Android-1a1a1a?style=for-the-badge&logo=android&logoColor=FF6B00)](https://github.com/termux/termux-app/releases/latest)
+[![Licença](https://img.shields.io/badge/Licença-MIT-FF6B00?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](./LICENSE)
 
 <br/>
 
@@ -21,7 +21,7 @@
 
 <br/>
 
-> 💬 **Bot completo de moderação de grupos WhatsApp, feito para rodar direto no celular via Termux.**  
+> 🤖 **Bot completo de moderação de grupos WhatsApp, feito para rodar direto no celular via Termux.**  
 > Sem servidor. Sem mensalidade. Instala em minutos e funciona 24h no seu Android.
 
 <br/>
@@ -107,7 +107,7 @@ Painel de configurações
 
 ---
 
-### ![1](https://img.shields.io/badge/PASSO-1-25D366?style=flat-square&logoColor=white) Instalar o Termux
+### ![1](https://img.shields.io/badge/PASSO-1-FF6B00?style=flat-square&logoColor=white) Instalar o Termux
 
 > [!WARNING]
 > **Não use a Play Store** — a versão de lá é desatualizada e quebra a instalação.  
@@ -119,7 +119,7 @@ Acesse no celular e instale o `.apk` mais recente:
 
 ---
 
-### ![2](https://img.shields.io/badge/PASSO-2-128C7E?style=flat-square&logoColor=white) Atualizar e instalar dependências
+### ![2](https://img.shields.io/badge/PASSO-2-CC4500?style=flat-square&logoColor=white) Atualizar e instalar dependências
 
 Abra o **Termux** e rode os comandos abaixo, **um de cada vez**:
 
@@ -139,7 +139,7 @@ node -v && git --version
 
 ---
 
-### ![3](https://img.shields.io/badge/PASSO-3-25D366?style=flat-square&logoColor=white) Clonar o repositório
+### ![3](https://img.shields.io/badge/PASSO-3-FF6B00?style=flat-square&logoColor=white) Clonar o repositório
 
 ```bash
 git clone https://github.com/Leo-Shiba/mod-bot.git && cd mod-bot
@@ -147,7 +147,7 @@ git clone https://github.com/Leo-Shiba/mod-bot.git && cd mod-bot
 
 ---
 
-### ![4](https://img.shields.io/badge/PASSO-4-128C7E?style=flat-square&logoColor=white) Instalar dependências do bot
+### ![4](https://img.shields.io/badge/PASSO-4-CC4500?style=flat-square&logoColor=white) Instalar dependências do bot
 
 ```bash
 npm install
@@ -157,7 +157,7 @@ npm install
 
 ---
 
-### ![5](https://img.shields.io/badge/PASSO-5-25D366?style=flat-square&logoColor=white) Iniciar o bot e escanear o QR Code
+### ![5](https://img.shields.io/badge/PASSO-5-FF6B00?style=flat-square&logoColor=white) Iniciar o bot e escanear o QR Code
 
 ```bash
 npm start
@@ -174,7 +174,7 @@ WhatsApp → Configurações → Aparelhos conectados → Conectar aparelho
 
 ---
 
-### ![6](https://img.shields.io/badge/PASSO-6-128C7E?style=flat-square&logoColor=white) Manter o bot ligado (recomendado)
+### ![6](https://img.shields.io/badge/PASSO-6-CC4500?style=flat-square&logoColor=white) Manter o bot ligado (recomendado)
 
 ```bash
 termux-wake-lock
@@ -264,10 +264,10 @@ Para encerrar: `Ctrl + C`
 | Automação | Padrão | Comportamento |
 |:--|:--:|:--|
 | 👋 Boas-vindas | ✅ Ligado | Mensagem ao entrar no grupo |
-| 🚪 Despedida | ⛔ Desligado | Mensagem ao sair do grupo |
-| 🔗 Anti-link | ⛔ Desligado | Apaga mensagens com links |
-| 💬 Anti-flood | ⛔ Desligado | Avisa quem envia mensagens rápido demais |
-| 📸 Anti-status | ⛔ Desligado | Impede visualização de status automática |
+| 🚪 Despedida | ❌ Desligado | Mensagem ao sair do grupo |
+| 🔗 Anti-link | ❌ Desligado | Apaga mensagens com links |
+| 💬 Anti-flood | ❌ Desligado | Avisa quem envia mensagens rápido demais |
+| 📸 Anti-status | ❌ Desligado | Impede visualização de status automática |
 | 🤬 Palavras proibidas | ✅ Sempre ativo | Apaga mensagens com palavras da lista negra |
 | 🔨 Ban automático | ✅ Ativo | Bane ao atingir o limite de avisos (padrão: 3) |
 
@@ -379,14 +379,14 @@ Distribuído sob a licença **MIT** — use, modifique e distribua à vontade.
 
 <div align="center">
 
-Feito com 💚 por **[Leo-Shiba](https://github.com/Leo-Shiba)**
+Feito com 🧡 por **[Leo-Shiba](https://github.com/Leo-Shiba)**
 
 <br/>
 
-[![GitHub](https://img.shields.io/badge/GitHub-Leo--Shiba-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Leo-Shiba)
+[![GitHub](https://img.shields.io/badge/GitHub-Leo--Shiba-1a1a1a?style=for-the-badge&logo=github&logoColor=FF6B00)](https://github.com/Leo-Shiba)
 
 <br/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:CC4500,100:FF8C00&height=120&section=footer" width="100%"/>
 
 </div>
