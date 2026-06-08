@@ -1,2 +1,51 @@
 // Autoria Leo-Shiba GitHub
-module.exports={nome:'ajuda',aliases:['help'],descricao:'Lista todos os comandos.',executar:async({sock,jid,comandos})=>{const lista=comandos();const a=lista.filter(c=>c.apenasAdmin);const p=lista.filter(c=>!c.apenasAdmin);const linhas=['🛡️ *Bot de Moderacao*','','*Admin:*',...a.map(c=>`  !${c.nome} — ${c.descricao}`),'','*Publico:*',...p.map(c=>`  !${c.nome} — ${c.descricao}`)];await sock.sendMessage(jid,{text:linhas.join('\n')});}};
+module.exports = {
+  nome: 'ajuda',
+  aliases: ['help', 'menu'],
+  descricao: 'Mostra todos os comandos disponíveis.',
+  apenasAdmin: false,
+  executar: async ({ sock, jid }) => {
+    await sock.sendMessage(jid, {
+      text: [
+        '╔══════════════════════╗',
+        '        🛡️ *MOD BOT*',
+        '╚══════════════════════╝',
+        '',
+        '🌐 *Públicos*',
+        '├ !ajuda — lista de comandos',
+        '├ !ping — latência do bot',
+        '├ !info — status do grupo',
+        '├ !regras — regras do grupo',
+        '├ !admins — admins do grupo',
+        '└ !avisos [@membro] — ver avisos',
+        '',
+        '🔨 *Punições* _(admin)_',
+        '├ !banir @membro',
+        '├ !avisar @membro [motivo]',
+        '├ !resetar @membro',
+        '├ !silenciar @membro [min]',
+        '└ !dessilenciar @membro',
+        '',
+        '👑 *Membros* _(admin)_',
+        '├ !promover @membro',
+        '└ !rebaixar @membro',
+        '',
+        '🔒 *Grupo* _(admin)_',
+        '├ !trancar — só admins enviam',
+        '└ !destrancar — todos podem enviar',
+        '',
+        '⚙️ *Configuração* _(admin)_',
+        '├ !config — ver/alterar config',
+        '├ !setboasvindas <msg>',
+        '├ !setsaida <msg>',
+        '└ !setregras <texto>',
+        '',
+        '🛠️ *Utilitários* _(admin)_',
+        '├ !limpar [n] — apaga N msgs (padrão 10)',
+        '├ !palavras — listar palavras proibidas',
+        '├ !addpalavra <palavra>',
+        '└ !rmpalavra <palavra>',
+      ].join('\n')
+    });
+  }
+};
