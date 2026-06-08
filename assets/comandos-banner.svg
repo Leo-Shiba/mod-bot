@@ -1,144 +1,162 @@
 <svg width="900" height="620" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Arial, sans-serif">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a1628"/>
-      <stop offset="100%" style="stop-color:#0d2137"/>
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#0d0d0d"/>
     </linearGradient>
     <linearGradient id="header" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#128C7E"/>
-      <stop offset="100%" style="stop-color:#25D366"/>
+      <stop offset="0%" style="stop-color:#CC4500"/>
+      <stop offset="100%" style="stop-color:#FF8C00"/>
     </linearGradient>
     <linearGradient id="section" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#075E54"/>
-      <stop offset="100%" style="stop-color:#128C7E"/>
+      <stop offset="0%" style="stop-color:#7A2A00"/>
+      <stop offset="100%" style="stop-color:#CC4500"/>
     </linearGradient>
   </defs>
+
   <rect width="900" height="620" fill="url(#bg)" rx="16"/>
   <rect width="900" height="72" fill="url(#header)" rx="16"/>
   <rect y="56" width="900" height="16" fill="url(#header)"/>
   <circle cx="46" cy="36" r="22" fill="rgba(255,255,255,0.15)"/>
-  <text x="46" y="44" text-anchor="middle" font-size="22" fill="white">&#x1F6E1;&#xFE0F;</text>
+  <text x="46" y="44" text-anchor="middle" font-size="22" fill="white">&#x1F916;</text>
   <text x="80" y="30" font-size="20" font-weight="700" fill="white">Mod-Bot &#x2014; Referencia de Comandos</text>
-  <text x="80" y="52" font-size="13" fill="rgba(255,255,255,0.8)">Todos os comandos usam o prefixo ! &#x2014; Admins tem acesso completo</text>
+  <text x="80" y="52" font-size="13" fill="rgba(255,255,255,0.85)">Todos os comandos usam o prefixo ! &#x2014; Admins tem acesso completo &#x2022; PT e EN aceitos</text>
+
+  <!-- Column 1: Moderacao -->
   <rect x="20" y="88" width="270" height="26" fill="url(#section)" rx="6"/>
   <text x="32" y="106" font-size="13" font-weight="700" fill="white">Moderacao (admin)</text>
   <rect x="20" y="118" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="28" y="131" font-size="11.5" fill="#25D366" font-weight="600">!banir / !kick</text>
-  <text x="160" y="131" font-size="11" fill="#aaa">Remove membro</text>
-  <text x="28" y="151" font-size="11.5" fill="#25D366" font-weight="600">!avisar / !warn</text>
-  <text x="160" y="151" font-size="11" fill="#aaa">Adiciona aviso</text>
+  <text x="28" y="131" font-size="11.5" fill="#FF8C00" font-weight="600">!banir / !kick</text>
+  <text x="155" y="131" font-size="11" fill="#aaa">Remove membro</text>
+  <text x="28" y="151" font-size="11.5" fill="#FF8C00" font-weight="600">!avisar / !warn</text>
+  <text x="155" y="151" font-size="11" fill="#aaa">Adiciona aviso</text>
   <rect x="20" y="156" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="28" y="169" font-size="11.5" fill="#25D366" font-weight="600">!resetar / !clearwarn</text>
+  <text x="28" y="169" font-size="11.5" fill="#FF8C00" font-weight="600">!resetar / !clearwarn</text>
   <text x="180" y="169" font-size="11" fill="#aaa">Zera avisos</text>
-  <text x="28" y="189" font-size="11.5" fill="#25D366" font-weight="600">!silenciar / !mute</text>
-  <text x="160" y="189" font-size="11" fill="#aaa">Silencia X minutos</text>
+  <text x="28" y="189" font-size="11.5" fill="#FF8C00" font-weight="600">!silenciar / !mute</text>
+  <text x="158" y="189" font-size="11" fill="#aaa">Silencia X minutos</text>
   <rect x="20" y="194" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="28" y="207" font-size="11.5" fill="#25D366" font-weight="600">!dessilenciar / !unmute</text>
-  <text x="200" y="207" font-size="11" fill="#aaa">Remove silencio</text>
-  <text x="28" y="227" font-size="11.5" fill="#25D366" font-weight="600">!avisos / !warns</text>
-  <text x="160" y="227" font-size="11" fill="#aaa">Ver historico</text>
+  <text x="28" y="207" font-size="11.5" fill="#FF8C00" font-weight="600">!dessilenciar / !unmute</text>
+  <text x="198" y="207" font-size="11" fill="#aaa">Remove silencio</text>
+  <text x="28" y="227" font-size="11.5" fill="#FF8C00" font-weight="600">!avisos / !warns</text>
+  <text x="155" y="227" font-size="11" fill="#aaa">Ver historico</text>
+
+  <!-- Column 1: Gestao -->
   <rect x="20" y="244" width="270" height="26" fill="url(#section)" rx="6"/>
   <text x="32" y="262" font-size="13" font-weight="700" fill="white">Gestao do grupo (admin)</text>
   <rect x="20" y="274" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="28" y="287" font-size="11.5" fill="#25D366" font-weight="600">!promover / !promote</text>
+  <text x="28" y="287" font-size="11.5" fill="#FF8C00" font-weight="600">!promover / !promote</text>
   <text x="190" y="287" font-size="11" fill="#aaa">Promove admin</text>
-  <text x="28" y="307" font-size="11.5" fill="#25D366" font-weight="600">!rebaixar / !demote</text>
-  <text x="185" y="307" font-size="11" fill="#aaa">Remove admin</text>
+  <text x="28" y="307" font-size="11.5" fill="#FF8C00" font-weight="600">!rebaixar / !demote</text>
+  <text x="182" y="307" font-size="11" fill="#aaa">Remove admin</text>
   <rect x="20" y="312" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="28" y="325" font-size="11.5" fill="#25D366" font-weight="600">!trancar / !lock</text>
-  <text x="165" y="325" font-size="11" fill="#aaa">Bloqueia nao-admins</text>
-  <text x="28" y="345" font-size="11.5" fill="#25D366" font-weight="600">!destrancar / !unlock</text>
-  <text x="195" y="345" font-size="11" fill="#aaa">Libera envio</text>
+  <text x="28" y="325" font-size="11.5" fill="#FF8C00" font-weight="600">!trancar / !lock</text>
+  <text x="163" y="325" font-size="11" fill="#aaa">Bloqueia nao-admins</text>
+  <text x="28" y="345" font-size="11.5" fill="#FF8C00" font-weight="600">!destrancar / !unlock</text>
+  <text x="193" y="345" font-size="11" fill="#aaa">Libera envio</text>
   <rect x="20" y="350" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="28" y="363" font-size="11.5" fill="#25D366" font-weight="600">!limpar [n] / !clear</text>
-  <text x="175" y="363" font-size="11" fill="#aaa">Apaga N mensagens</text>
+  <text x="28" y="363" font-size="11.5" fill="#FF8C00" font-weight="600">!limpar [n] / !clear</text>
+  <text x="172" y="363" font-size="11" fill="#aaa">Apaga N mensagens</text>
+
+  <!-- Column 1: Utilitarios -->
   <rect x="20" y="382" width="270" height="26" fill="url(#section)" rx="6"/>
   <text x="32" y="400" font-size="13" font-weight="700" fill="white">Utilitarios (admin)</text>
   <rect x="20" y="412" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="28" y="425" font-size="11.5" fill="#25D366" font-weight="600">!info</text>
-  <text x="100" y="425" font-size="11" fill="#aaa">Status e info do grupo</text>
-  <text x="28" y="445" font-size="11.5" fill="#25D366" font-weight="600">!admins</text>
-  <text x="100" y="445" font-size="11" fill="#aaa">Lista os admins</text>
+  <text x="28" y="425" font-size="11.5" fill="#FF8C00" font-weight="600">!info</text>
+  <text x="95" y="425" font-size="11" fill="#aaa">Status e info do grupo</text>
+  <text x="28" y="445" font-size="11.5" fill="#FF8C00" font-weight="600">!admins</text>
+  <text x="95" y="445" font-size="11" fill="#aaa">Lista os admins</text>
   <rect x="20" y="450" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="28" y="463" font-size="11.5" fill="#25D366" font-weight="600">!ping</text>
-  <text x="100" y="463" font-size="11" fill="#aaa">Latencia do bot</text>
-  <text x="28" y="483" font-size="11.5" fill="#25D366" font-weight="600">!ajuda / !help</text>
-  <text x="145" y="483" font-size="11" fill="#aaa">Lista todos os comandos</text>
+  <text x="28" y="463" font-size="11.5" fill="#FF8C00" font-weight="600">!ping</text>
+  <text x="95" y="463" font-size="11" fill="#aaa">Latencia do bot</text>
+  <text x="28" y="483" font-size="11.5" fill="#FF8C00" font-weight="600">!ajuda / !help</text>
+  <text x="140" y="483" font-size="11" fill="#aaa">Lista todos os comandos</text>
   <rect x="20" y="488" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="28" y="501" font-size="11.5" fill="#25D366" font-weight="600">!regras / !rules</text>
-  <text x="160" y="501" font-size="11" fill="#aaa">Regras do grupo (publico)</text>
+  <text x="28" y="501" font-size="11.5" fill="#FF8C00" font-weight="600">!regras / !rules</text>
+  <text x="155" y="501" font-size="11" fill="#aaa">Regras do grupo (publico)</text>
+
+  <!-- Column 2: Configuracao -->
   <rect x="310" y="88" width="270" height="26" fill="url(#section)" rx="6"/>
   <text x="322" y="106" font-size="13" font-weight="700" fill="white">Configuracao (admin)</text>
   <rect x="310" y="118" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="318" y="131" font-size="11.5" fill="#25D366" font-weight="600">!config / !cfg</text>
-  <text x="430" y="131" font-size="11" fill="#aaa">Painel de config</text>
-  <text x="318" y="151" font-size="11.5" fill="#25D366" font-weight="600">!config antilink on/off</text>
-  <text x="318" y="163" font-size="10.5" fill="#777">Ativa/desativa bloqueio de links</text>
+  <text x="318" y="131" font-size="11.5" fill="#FF8C00" font-weight="600">!config / !cfg</text>
+  <text x="425" y="131" font-size="11" fill="#aaa">Painel de config</text>
+  <text x="318" y="151" font-size="11.5" fill="#FF8C00" font-weight="600">!config antilink on/off</text>
+  <text x="318" y="163" font-size="10.5" fill="#666">Ativa/desativa bloqueio de links</text>
   <rect x="310" y="168" width="270" height="30" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="318" y="181" font-size="11.5" fill="#25D366" font-weight="600">!config antiflood on/off</text>
-  <text x="318" y="193" font-size="10.5" fill="#777">Ativa/desativa controle de spam</text>
-  <text x="318" y="213" font-size="11.5" fill="#25D366" font-weight="600">!config antistatus on/off</text>
-  <text x="318" y="225" font-size="10.5" fill="#777">Ativa/desativa anti-status</text>
+  <text x="318" y="181" font-size="11.5" fill="#FF8C00" font-weight="600">!config antiflood on/off</text>
+  <text x="318" y="193" font-size="10.5" fill="#666">Ativa/desativa controle de spam</text>
+  <text x="318" y="213" font-size="11.5" fill="#FF8C00" font-weight="600">!config antistatus on/off</text>
+  <text x="318" y="225" font-size="10.5" fill="#666">Ativa/desativa anti-status</text>
   <rect x="310" y="230" width="270" height="30" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="318" y="243" font-size="11.5" fill="#25D366" font-weight="600">!config boasvindas on/off</text>
-  <text x="318" y="255" font-size="10.5" fill="#777">Msg ao entrar no grupo</text>
-  <text x="318" y="275" font-size="11.5" fill="#25D366" font-weight="600">!config saida on/off</text>
-  <text x="318" y="287" font-size="10.5" fill="#777">Msg ao sair do grupo</text>
+  <text x="318" y="243" font-size="11.5" fill="#FF8C00" font-weight="600">!config boasvindas on/off</text>
+  <text x="318" y="255" font-size="10.5" fill="#666">Msg ao entrar no grupo</text>
+  <text x="318" y="275" font-size="11.5" fill="#FF8C00" font-weight="600">!config saida on/off</text>
+  <text x="318" y="287" font-size="10.5" fill="#666">Msg ao sair do grupo</text>
   <rect x="310" y="292" width="270" height="30" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="318" y="305" font-size="11.5" fill="#25D366" font-weight="600">!config maxavisos [n]</text>
-  <text x="318" y="317" font-size="10.5" fill="#777">Limite de avisos antes do ban</text>
-  <text x="318" y="337" font-size="11.5" fill="#25D366" font-weight="600">!config floodlimite [n]</text>
-  <text x="318" y="349" font-size="10.5" fill="#777">Msgs por 10s antes do flood</text>
+  <text x="318" y="305" font-size="11.5" fill="#FF8C00" font-weight="600">!config maxavisos [n]</text>
+  <text x="318" y="317" font-size="10.5" fill="#666">Limite de avisos antes do ban</text>
+  <text x="318" y="337" font-size="11.5" fill="#FF8C00" font-weight="600">!config floodlimite [n]</text>
+  <text x="318" y="349" font-size="10.5" fill="#666">Msgs por 10s antes do flood</text>
   <rect x="310" y="354" width="270" height="30" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="318" y="367" font-size="11.5" fill="#25D366" font-weight="600">!setregras [texto] / !setrules</text>
-  <text x="318" y="379" font-size="10.5" fill="#777">Define as regras do grupo</text>
-  <text x="318" y="399" font-size="11.5" fill="#25D366" font-weight="600">!setboasvindas [msg] / !setwelcome</text>
-  <text x="318" y="411" font-size="10.5" fill="#777">Msg de boas-vindas ({nome} = mencao)</text>
+  <text x="318" y="367" font-size="11.5" fill="#FF8C00" font-weight="600">!setregras / !setrules</text>
+  <text x="318" y="379" font-size="10.5" fill="#666">Define as regras do grupo</text>
+  <text x="318" y="399" font-size="11.5" fill="#FF8C00" font-weight="600">!setboasvindas / !setwelcome</text>
+  <text x="318" y="411" font-size="10.5" fill="#666">Msg boas-vindas ({nome} = mencao)</text>
   <rect x="310" y="416" width="270" height="30" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="318" y="429" font-size="11.5" fill="#25D366" font-weight="600">!setsaida [msg] / !setleave</text>
-  <text x="318" y="441" font-size="10.5" fill="#777">Msg de saida ({nome} = mencao)</text>
+  <text x="318" y="429" font-size="11.5" fill="#FF8C00" font-weight="600">!setsaida / !setleave</text>
+  <text x="318" y="441" font-size="10.5" fill="#666">Msg de saida ({nome} = mencao)</text>
+
+  <!-- Column 2: Palavras proibidas -->
   <rect x="310" y="460" width="270" height="26" fill="url(#section)" rx="6"/>
   <text x="322" y="478" font-size="13" font-weight="700" fill="white">Palavras proibidas (admin)</text>
   <rect x="310" y="490" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="318" y="503" font-size="11.5" fill="#25D366" font-weight="600">!palavras / !words</text>
-  <text x="430" y="503" font-size="11" fill="#aaa">Lista palavras</text>
-  <text x="318" y="523" font-size="11.5" fill="#25D366" font-weight="600">!addpalavra / !addword</text>
-  <text x="450" y="523" font-size="11" fill="#aaa">Adiciona</text>
+  <text x="318" y="503" font-size="11.5" fill="#FF8C00" font-weight="600">!palavras / !words</text>
+  <text x="425" y="503" font-size="11" fill="#aaa">Lista palavras</text>
+  <text x="318" y="523" font-size="11.5" fill="#FF8C00" font-weight="600">!addpalavra / !addword</text>
+  <text x="445" y="523" font-size="11" fill="#aaa">Adiciona</text>
   <rect x="310" y="528" width="270" height="18" fill="rgba(255,255,255,0.04)" rx="3"/>
-  <text x="318" y="541" font-size="11.5" fill="#25D366" font-weight="600">!rmpalavra / !rmword</text>
-  <text x="440" y="541" font-size="11" fill="#aaa">Remove</text>
+  <text x="318" y="541" font-size="11.5" fill="#FF8C00" font-weight="600">!rmpalavra / !rmword</text>
+  <text x="435" y="541" font-size="11" fill="#aaa">Remove</text>
+
+  <!-- Column 3: Automacoes -->
   <rect x="600" y="88" width="280" height="26" fill="url(#section)" rx="6"/>
-  <text x="612" y="106" font-size="13" font-weight="700" fill="white">Automacoes ativas</text>
-  <rect x="600" y="118" width="280" height="22" fill="rgba(37,211,102,0.12)" rx="4"/>
-  <text x="610" y="134" font-size="12" fill="#25D366" font-weight="700">Anti-link</text>
-  <text x="700" y="134" font-size="11" fill="#888">Liga/desliga via !config</text>
-  <rect x="600" y="144" width="280" height="22" fill="rgba(37,211,102,0.06)" rx="4"/>
-  <text x="610" y="160" font-size="12" fill="#25D366" font-weight="700">Anti-flood</text>
-  <text x="705" y="160" font-size="11" fill="#888">Liga/desliga via !config</text>
-  <rect x="600" y="170" width="280" height="22" fill="rgba(37,211,102,0.12)" rx="4"/>
-  <text x="610" y="186" font-size="12" fill="#25D366" font-weight="700">Anti-status</text>
-  <text x="710" y="186" font-size="11" fill="#888">Liga/desliga via !config</text>
-  <rect x="600" y="196" width="280" height="22" fill="rgba(37,211,102,0.06)" rx="4"/>
-  <text x="610" y="212" font-size="12" fill="#25D366" font-weight="700">Palavras proibidas</text>
-  <text x="600" y="226" font-size="10.5" fill="#666">     Sempre ativo - lista configuravel</text>
-  <rect x="600" y="230" width="280" height="22" fill="rgba(37,211,102,0.12)" rx="4"/>
-  <text x="610" y="246" font-size="12" fill="#25D366" font-weight="700">Boas-vindas/Saida</text>
-  <text x="600" y="260" font-size="10.5" fill="#666">     Liga/desliga via !config</text>
-  <rect x="600" y="264" width="280" height="22" fill="rgba(37,211,102,0.06)" rx="4"/>
-  <text x="610" y="280" font-size="12" fill="#25D366" font-weight="700">Ban automatico</text>
-  <text x="600" y="294" font-size="10.5" fill="#666">     Ao atingir maxavisos</text>
-  <line x1="600" y1="310" x2="875" y2="310" stroke="#1a3a2a" stroke-width="1"/>
+  <text x="612" y="106" font-size="13" font-weight="700" fill="white">Automacoes</text>
+  <rect x="600" y="118" width="280" height="22" fill="rgba(255,107,0,0.12)" rx="4"/>
+  <text x="610" y="134" font-size="12" fill="#FF8C00" font-weight="700">Anti-link</text>
+  <text x="690" y="134" font-size="11" fill="#888">Liga/desliga via !config</text>
+  <rect x="600" y="144" width="280" height="22" fill="rgba(255,107,0,0.06)" rx="4"/>
+  <text x="610" y="160" font-size="12" fill="#FF8C00" font-weight="700">Anti-flood</text>
+  <text x="695" y="160" font-size="11" fill="#888">Liga/desliga via !config</text>
+  <rect x="600" y="170" width="280" height="22" fill="rgba(255,107,0,0.12)" rx="4"/>
+  <text x="610" y="186" font-size="12" fill="#FF8C00" font-weight="700">Anti-status</text>
+  <text x="700" y="186" font-size="11" fill="#888">Liga/desliga via !config</text>
+  <rect x="600" y="196" width="280" height="22" fill="rgba(255,107,0,0.06)" rx="4"/>
+  <text x="610" y="212" font-size="12" fill="#FF8C00" font-weight="700">Palavras proibidas</text>
+  <text x="600" y="226" font-size="10.5" fill="#555">     Sempre ativo - lista configuravel</text>
+  <rect x="600" y="230" width="280" height="22" fill="rgba(255,107,0,0.12)" rx="4"/>
+  <text x="610" y="246" font-size="12" fill="#FF8C00" font-weight="700">Boas-vindas / Saida</text>
+  <text x="600" y="260" font-size="10.5" fill="#555">     Liga/desliga via !config</text>
+  <rect x="600" y="264" width="280" height="22" fill="rgba(255,107,0,0.06)" rx="4"/>
+  <text x="610" y="280" font-size="12" fill="#FF8C00" font-weight="700">Ban automatico</text>
+  <text x="600" y="294" font-size="10.5" fill="#555">     Ao atingir maxavisos</text>
+
+  <line x1="600" y1="310" x2="875" y2="310" stroke="#3a2010" stroke-width="1"/>
+
   <rect x="600" y="320" width="280" height="26" fill="url(#section)" rx="6"/>
   <text x="612" y="338" font-size="13" font-weight="700" fill="white">Dicas rapidas</text>
-  <text x="608" y="362" font-size="11.5" fill="#ccc">Use {nome} nas mensagens</text>
-  <text x="614" y="376" font-size="11" fill="#888">para mencionar automaticamente</text>
-  <text x="608" y="398" font-size="11.5" fill="#ccc">Admin responde no PV</text>
-  <text x="614" y="412" font-size="11" fill="#888">nao polui o grupo</text>
-  <text x="608" y="434" font-size="11.5" fill="#ccc">Comandos em PT e EN</text>
-  <text x="614" y="448" font-size="11" fill="#888">aceitos igualmente</text>
-  <text x="608" y="470" font-size="11.5" fill="#ccc">!config para ver tudo</text>
-  <text x="614" y="484" font-size="11" fill="#888">que esta ativo no grupo</text>
+
+  <text x="608" y="362" font-size="11.5" fill="#ddd">Use {nome} nas mensagens</text>
+  <text x="614" y="376" font-size="11" fill="#777">para mencionar automaticamente</text>
+  <text x="608" y="398" font-size="11.5" fill="#ddd">Admin responde no PV</text>
+  <text x="614" y="412" font-size="11" fill="#777">nao polui o grupo</text>
+  <text x="608" y="434" font-size="11.5" fill="#ddd">Comandos em PT e EN</text>
+  <text x="614" y="448" font-size="11" fill="#777">aceitos igualmente</text>
+  <text x="608" y="470" font-size="11.5" fill="#ddd">!config para ver tudo</text>
+  <text x="614" y="484" font-size="11" fill="#777">que esta ativo no grupo</text>
+
+  <!-- Footer -->
   <rect y="570" width="900" height="50" fill="url(#header)" rx="0"/>
   <rect y="570" width="900" height="10" fill="url(#header)"/>
-  <text x="450" y="598" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.9)" font-weight="600">github.com/Leo-Shiba/mod-bot - Prefixo: ! - MIT License</text>
+  <text x="450" y="598" text-anchor="middle" font-size="13" fill="rgba(255,255,255,0.9)" font-weight="600">github.com/Leo-Shiba/mod-bot &#x2022; Prefixo: ! &#x2022; MIT License</text>
 </svg>
