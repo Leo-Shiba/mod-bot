@@ -107,7 +107,9 @@ Painel de configurações
 
 ---
 
-### ![1](https://img.shields.io/badge/PASSO-1-FF6B00?style=flat-square&logoColor=white) &nbsp; Instalar o Termux
+![PASSO 1](https://img.shields.io/badge/PASSO-1-FF6B00?style=flat-square&logoColor=white)
+
+### Instalar o Termux
 
 > [!WARNING]
 > **Não use a Play Store** — a versão de lá é desatualizada e quebra a instalação.
@@ -119,7 +121,9 @@ Acesse no celular e instale o `.apk` mais recente:
 
 ---
 
-### ![2](https://img.shields.io/badge/PASSO-2-CC4500?style=flat-square&logoColor=white) &nbsp; Atualizar e instalar dependências
+![PASSO 2](https://img.shields.io/badge/PASSO-2-CC4500?style=flat-square&logoColor=white)
+
+### Atualizar e instalar dependencias
 
 Abra o **Termux** e rode os comandos abaixo, **um de cada vez**:
 
@@ -135,11 +139,13 @@ pkg install nodejs git -y
 node -v && git --version
 ```
 
-> ✅ Se aparecer as versões do Node e do Git, está tudo certo!
+> ✅ Se aparecer as versoes do Node e do Git, esta tudo certo!
 
 ---
 
-### ![3](https://img.shields.io/badge/PASSO-3-FF6B00?style=flat-square&logoColor=white) &nbsp; Clonar o repositório
+![PASSO 3](https://img.shields.io/badge/PASSO-3-FF6B00?style=flat-square&logoColor=white)
+
+### Clonar o Projeto
 
 ```bash
 git clone https://github.com/Leo-Shiba/mod-bot.git && cd mod-bot
@@ -147,7 +153,9 @@ git clone https://github.com/Leo-Shiba/mod-bot.git && cd mod-bot
 
 ---
 
-### ![4](https://img.shields.io/badge/PASSO-4-CC4500?style=flat-square&logoColor=white) &nbsp; Instalar as dependências do bot
+![PASSO 4](https://img.shields.io/badge/PASSO-4-CC4500?style=flat-square&logoColor=white)
+
+### Instalar as dependencias do bot
 
 ```bash
 npm install
@@ -157,24 +165,28 @@ npm install
 
 ---
 
-### ![5](https://img.shields.io/badge/PASSO-5-FF6B00?style=flat-square&logoColor=white) &nbsp; Iniciar o bot e escanear o QR Code
+![PASSO 5](https://img.shields.io/badge/PASSO-5-FF6B00?style=flat-square&logoColor=white)
+
+### Iniciar o bot e escanear o QR Code
 
 ```bash
 npm start
 ```
 
-Um **QR Code** aparecerá no terminal. Para conectar:
+Um **QR Code** aparecera no terminal. Para conectar:
 
 ```
 WhatsApp → Configurações → Aparelhos conectados → Conectar aparelho
 ```
 
 > [!TIP]
-> ✅ Quando aparecer **"Conectado ao WhatsApp!"** o bot está online e pronto!
+> ✅ Quando aparecer **"Conectado ao WhatsApp!"** o bot esta online e pronto!
 
 ---
 
-### ![6](https://img.shields.io/badge/PASSO-6-CC4500?style=flat-square&logoColor=white) &nbsp; Manter o bot ligado (recomendado)
+![PASSO 6](https://img.shields.io/badge/PASSO-6-CC4500?style=flat-square&logoColor=white)
+
+### Manter o bot ligado (recomendado)
 
 ```bash
 termux-wake-lock
@@ -196,7 +208,7 @@ Para encerrar: `Ctrl + C`
 
 ## ⚙️ Comandos
 
-> Todos os comandos usam o prefixo `!`. Comandos em **PT** e **EN** são aceitos igualmente.
+> Todos os comandos usam o prefixo `!`. Comandos em **PT** e **EN** sao aceitos igualmente.
 
 ### 🔐 Moderação e Gestão (admins)
 
@@ -208,12 +220,12 @@ Para encerrar: `Ctrl + C`
 | `!avisar @membro [motivo]` | `!warn` | Adiciona aviso (ao atingir o limite → ban) |
 | `!resetar @membro` | `!clearwarn` | Zera os avisos de um membro |
 | `!silenciar @membro [min]` | `!mute` | Silencia temporariamente |
-| `!dessilenciar @membro` | `!unmute` | Remove o silêncio |
+| `!dessilenciar @membro` | `!unmute` | Remove o silencio |
 | `!promover @membro` | `!promote` | Torna o membro administrador |
-| `!rebaixar @membro` | `!demote` | Remove a administração |
-| `!trancar` | `!lock` | Bloqueia envio para não-admins |
+| `!rebaixar @membro` | `!demote` | Remove a administracao |
+| `!trancar` | `!lock` | Bloqueia envio para nao-admins |
 | `!destrancar` | `!unlock` | Libera envio para todos |
-| `!limpar [n]` | `!clear` | Apaga as últimas N mensagens (máx 50) |
+| `!limpar [n]` | `!clear` | Apaga as ultimas N mensagens (max 50) |
 
 </div>
 
@@ -223,7 +235,7 @@ Para encerrar: `Ctrl + C`
 
 | Comando | Descrição |
 |:--|:--|
-| `!config` / `!cfg` | Painel de configurações do grupo |
+| `!config` / `!cfg` | Painel de configuracoes do grupo |
 | `!config antilink on/off` | Liga/desliga bloqueio de links |
 | `!config antiflood on/off` | Liga/desliga controle de spam |
 | `!config antistatus on/off` | Liga/desliga anti-status |
@@ -232,15 +244,15 @@ Para encerrar: `Ctrl + C`
 | `!config maxavisos <n>` | Define o limite de avisos antes do ban |
 | `!config floodlimite <n>` | Msgs por 10s antes de acionar o anti-flood |
 | `!setboasvindas <msg>` / `reset` | Personaliza a mensagem de entrada |
-| `!setsaida <msg>` / `reset` | Personaliza a mensagem de saída |
+| `!setsaida <msg>` / `reset` | Personaliza a mensagem de saida |
 | `!setregras <texto>` | Define as regras do grupo |
 | `!palavras` | Lista palavras proibidas |
-| `!addpalavra <palavra>` | Adiciona palavra à lista negra |
+| `!addpalavra <palavra>` | Adiciona palavra a lista negra |
 | `!rmpalavra <palavra>` | Remove palavra da lista negra |
 
 </div>
 
-### 🌐 Comandos Públicos
+### 🌐 Comandos Publicos
 
 <div align="center">
 
@@ -249,8 +261,8 @@ Para encerrar: `Ctrl + C`
 | `!regras` | `!rules` | Mostra as regras do grupo |
 | `!avisos [@membro]` | `!warns` | Consulta avisos de um membro |
 | `!admins` | — | Lista os administradores |
-| `!info` | — | Estatísticas do grupo |
-| `!ping` | — | Latência do bot |
+| `!info` | — | Estatisticas do grupo |
+| `!ping` | — | Latencia do bot |
 | `!ajuda` | `!help` | Lista todos os comandos |
 
 </div>
@@ -266,10 +278,10 @@ Para encerrar: `Ctrl + C`
 | 👋 Boas-vindas | ✅ Ligado | Mensagem ao entrar no grupo |
 | 🚪 Despedida | 🔴 Desligado | Mensagem ao sair do grupo |
 | 🔗 Anti-link | 🔴 Desligado | Apaga mensagens com links |
-| 💬 Anti-flood | 🔴 Desligado | Avisa quem envia mensagens rápido demais |
-| 📸 Anti-status | 🔴 Desligado | Impede visualização de status automática |
+| 💬 Anti-flood | 🔴 Desligado | Avisa quem envia mensagens rapido demais |
+| 📸 Anti-status | 🔴 Desligado | Impede visualizacao de status automatica |
 | 🤬 Palavras proibidas | ✅ Sempre ativo | Apaga mensagens com palavras da lista negra |
-| 🔨 Ban automático | ✅ Ativo | Bane ao atingir o limite de avisos (padrão: 3) |
+| 🔨 Ban automatico | ✅ Ativo | Bane ao atingir o limite de avisos (padrao: 3) |
 
 </div>
 
@@ -279,7 +291,7 @@ Use `{nome}` para mencionar o membro automaticamente:
 
 ```bash
 !setboasvindas Bem-vindo(a) ao grupo, {nome}! Leia as !regras 📋
-!setsaida Até mais, {nome}! Foi um prazer ter você aqui 👋
+!setsaida Ate mais, {nome}! Foi um prazer ter voce aqui 👋
 ```
 
 ---
@@ -287,7 +299,7 @@ Use `{nome}` para mencionar o membro automaticamente:
 ## 🔧 Solução de problemas
 
 <details>
-<summary><b>❓ QR Code não aparece ou expirou</b></summary>
+<summary><b>❓ QR Code nao aparece ou expirou</b></summary>
 
 ```bash
 rm -rf data/auth && npm start
@@ -306,7 +318,7 @@ O bot reconecta automaticamente na maioria dos casos.
 <details>
 <summary><b>❓ Erro "pkg: command not found"</b></summary>
 
-Certifique-se de que está usando o **Termux do GitHub**, não da Play Store. Reinstale se necessário.
+Certifique-se de que esta usando o **Termux do GitHub**, nao da Play Store. Reinstale se necessario.
 </details>
 
 <details>
@@ -320,7 +332,7 @@ pkg install nodejs-lts -y
 <details>
 <summary><b>❓ Bot encerrado com a tela apagada</b></summary>
 
-Execute `termux-wake-lock` e configure o Termux como app sem restrição de bateria:
+Execute `termux-wake-lock` e configure o Termux como app sem restricao de bateria:
 **Configurações → Aplicativos → Termux → Bateria → Sem restrições**
 </details>
 
@@ -331,17 +343,17 @@ Execute `termux-wake-lock` e configure o Termux como app sem restrição de bate
 ```
 mod-bot/
 │
-├── 📄 index.js              # Núcleo: conexão, eventos, anti-flood, anti-link
+├── 📄 index.js              # Nucleo: conexao, eventos, anti-flood, anti-link
 ├── 📄 launcher.js           # Inicializador com keep-alive
-├── 📄 config.js             # Configurações gerais
+├── 📄 config.js             # Configuracoes gerais
 │
 ├── 📂 core/
 │   ├── commandHandler.js    # Carrega e processa comandos
 │   ├── database.js          # Banco SQLite (avisos, config, grupos)
-│   ├── seguranca.js         # Verificação de permissões
-│   ├── notificar.js         # Notificações para o dono
+│   ├── seguranca.js         # Verificacao de permissoes
+│   ├── notificar.js         # Notificacoes para o dono
 │   ├── buffer.js            # Buffer de mensagens para !limpar
-│   └── utils.js             # Funções utilitárias
+│   └── utils.js             # Funcoes utilitarias
 │
 ├── 📂 commands/             # Um arquivo por comando
 │   ├── ajuda.js
@@ -356,13 +368,13 @@ mod-bot/
 
 ---
 
-## 📦 Dependências
+## 📦 Dependencias
 
 <div align="center">
 
 | Pacote | Uso |
 |:--|:--|
-| [`@whiskeysockets/baileys`](https://github.com/WhiskeySockets/Baileys) | Conexão com WhatsApp Web |
+| [`@whiskeysockets/baileys`](https://github.com/WhiskeySockets/Baileys) | Conexao com WhatsApp Web |
 | [`pino`](https://getpino.io) | Logger |
 | [`qrcode-terminal`](https://github.com/gtanner/qrcode-terminal) | QR Code no terminal |
 | [`better-sqlite3`](https://github.com/WiseLibs/better-sqlite3) | Banco de dados local |
@@ -373,7 +385,7 @@ mod-bot/
 
 ## 📝 Licença
 
-Distribuído sob a licença **MIT** — use, modifique e distribua à vontade.
+Distribuido sob a licenca **MIT** — use, modifique e distribua a vontade.
 
 ---
 
